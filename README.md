@@ -18,9 +18,9 @@
 固定資産の管理
 
 ## 設計書
-<...>
 
-## チャレンジ要素一覧
+
+## 機能一覧
 https://docs.google.com/spreadsheets/d/1yQ82wVw4gmAwyLPj2tjBVdmJ3MiDlwcqEMax2L3uj6I/edit#gid=0
 
 ## 開発環境

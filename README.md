@@ -32,5 +32,5 @@ https://docs.google.com/spreadsheets/d/1yQ82wVw4gmAwyLPj2tjBVdmJ3MiDlwcqEMax2L3u
 
 ## 使用素材
 https://unsplash.com/  アンスプラッシュ  
-https://www.pexels.com/ja-jp/　ピクセルズ  
-https://www.pakutaso.com/　ぱくたそ  
+https://www.pexels.com/ja-jp/  ピクセルズ  
+https://www.pakutaso.com/  ぱくたそ  

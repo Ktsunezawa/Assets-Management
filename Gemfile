@@ -37,8 +37,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+ gem 'capybara', '>= 2.15'
+ gem 'rspec-rails'
+ gem "factory_bot_rails"
+ gem 'faker'
 end
 
 group :development do
@@ -60,3 +62,17 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'devise'
+gem 'kaminari', '~> 1.2.1'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+gem 'bootstrap', '~> 4.5'
+gem 'jquery-rails'
+gem "pry-byebug"
+gem "font-awesome-sass", "~> 5.13"
+gem "rails-i18n", "~> 5.1"
+gem 'acts-as-taggable-on', '~> 6.0'
+gem 'ransack'
+gem 'rubocop-airbnb'
+gem 'dotenv-rails'

@@ -8,7 +8,71 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <header>
+    <nav>
+      <div>
+        <a href="/">
+          <span>Assets Management</span>
+        </a>
+        <div>
+          <ul>
+            <% if staff_signed_in? %>
+              <li>
+                <%= link_to "マイページ" %>
+              </li>
+              <li>
+                <%= link_to "資産一覧" %>
+              </li>
+              <li>
+                <%= link_to "資産区分一覧" %>
+              </li>
+              <li>
+                <%= link_to "申請一覧" %>
+              </li>
+              <li>
+                <%= link_to "拠点一覧" %>
+              </li>
+              <li>
+                <a href="http://www.web-seibunsha.jp/tebiki/pdf/9/pdf_mask/huroku.pdf">
+                  <span>国税庁耐用年数表</span>
+                </a>
+              </li>
+              <li>
+                <%= link_to "ログアウト" %>
+              </li>
+            <% elsif manager_signed_in? %>
+              <li>
+                <%= link_to "担当者一覧" %>
+              </li>
+              <li>
+                <%= link_to "資産一覧" %>
+              </li>
+              <li>
+                <%= link_to "申請一覧" %>
+              </li>
+              <li>
+                <a href="http://www.web-seibunsha.jp/tebiki/pdf/9/pdf_mask/huroku.pdf">
+                  <span>国税庁耐用年数表</span>
+                </a>
+              </li>
+              <li>
+                <%= link_to "ログアウト" %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "About" %>
+              </li>
+              <li>
+                <a href="http://www.web-seibunsha.jp/tebiki/pdf/9/pdf_mask/huroku.pdf">
+                  <span>国税庁耐用年数表</span>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
   <body>
     <%= yield %>
   </body>

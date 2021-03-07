@@ -9,62 +9,63 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header>
-    <nav>
-      <div>
-        <a href="/">
-          <span>Assets Management</span>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid ">
+        <a class="navbar-brand btn btn-light" href="/">
+          <p class="text-center mb-0">Assets</p>
+          <p class="mt-0 mb-0">Management</p>
         </a>
-        <div>
-          <ul>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
             <% if staff_signed_in? %>
-              <li>
-                <%= link_to "マイページ" %>
+              <li class="mr-3 pt-3 btn btn-light">
+                <%= link_to "マイページ", edit_staffs_staff_path(current_staff.id) %>
               </li>
-              <li>
+              <li class="mr-3 pt-3 btn btn-light">
                 <%= link_to "資産一覧" %>
               </li>
-              <li>
+              <li class="mr-3 pt-3 btn btn-light">
                 <%= link_to "資産区分一覧" %>
               </li>
-              <li>
+              <li class="mr-3 pt-3 btn btn-light">
                 <%= link_to "申請一覧" %>
               </li>
-              <li>
+              <li class="mr-3 pt-3 btn btn-light">
                 <%= link_to "拠点一覧" %>
               </li>
-              <li>
+              <li class="mr-3 btn btn-light">
                 <a href="http://www.web-seibunsha.jp/tebiki/pdf/9/pdf_mask/huroku.pdf">
-                  <span>国税庁耐用年数表</span>
+                  <span>国税庁<br />耐用年数表</span>
                 </a>
               </li>
-              <li>
-                <%= link_to "ログアウト" %>
+              <li class="mr-3 pt-3 btn btn-light">
+                <%= link_to "ログアウト", destroy_staff_session_path, method: :delete %>
               </li>
             <% elsif manager_signed_in? %>
-              <li>
-                <%= link_to "担当者一覧" %>
+              <li class="mr-3 pt-3 btn btn-light">
+                <%= link_to "担当者一覧", managers_staffs_path %>
               </li>
-              <li>
+              <li class="mr-3 pt-3 btn btn-light">
                 <%= link_to "資産一覧" %>
               </li>
-              <li>
+              <li class="mr-3 pt-3 btn btn-light">
                 <%= link_to "申請一覧" %>
               </li>
-              <li>
+              <li class="mr-3 btn btn-light">
                 <a href="http://www.web-seibunsha.jp/tebiki/pdf/9/pdf_mask/huroku.pdf">
-                  <span>国税庁耐用年数表</span>
+                  <span>国税庁<br />耐用年数表</span>
                 </a>
               </li>
-              <li>
-                <%= link_to "ログアウト" %>
+              <li class="mr-3 pt-3 btn btn-light">
+                <%= link_to "ログアウト", destroy_manager_session_path, method: :delete %>
               </li>
             <% else %>
-              <li>
-                <%= link_to "About" %>
+              <li class="mr-5 pt-3 btn btn-light ">
+                <%= link_to "About", homes_about_path %>
               </li>
-              <li>
+              <li class="mr-5 btn btn-light ">
                 <a href="http://www.web-seibunsha.jp/tebiki/pdf/9/pdf_mask/huroku.pdf">
-                  <span>国税庁耐用年数表</span>
+                  <span>国税庁<br />耐用年数表</span>
                 </a>
               </li>
             <% end %>

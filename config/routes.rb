@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root to: 'homes#top'
   get 'homes/about' => 'homes#about'
 
@@ -16,9 +17,11 @@ Rails.application.routes.draw do
 
   namespace :staffs do
     resources :staffs, only: [:edit, :update]
+    resources :fixed_assets, except: [:edit, :destroy]
   end
 
   namespace :managers do
     resources :staffs, only: [:index, :destroy]
-  end
+    resources :fixed_assets, only: [:index, :show, :destroy]
+    end
 end

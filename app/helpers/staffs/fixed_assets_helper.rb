@@ -1,0 +1,2 @@
+module Staffs::FixedAssetsHelper
+end

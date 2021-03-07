@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_064856) do
+ActiveRecord::Schema.define(version: 2021_03_07_073933) do
+
+  create_table "bases", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fixed_assets", force: :cascade do |t|
+    t.integer "staff_id"
+    t.integer "base_id"
+    t.string "name", default: "", null: false
+    t.integer "cost"
+    t.text "memo"
+    t.date "acquisition_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "managers", force: :cascade do |t|
     t.string "email", default: "", null: false

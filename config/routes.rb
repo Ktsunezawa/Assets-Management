@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   namespace :staffs do
     resources :staffs, only: [:edit, :update]
     resources :fixed_assets, except: [:edit, :destroy]
+    resources :bases, except: [:show]
   end
 
   namespace :managers do

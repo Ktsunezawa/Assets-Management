@@ -15,7 +15,7 @@
           <td><%= staff.name %></td>
           <td><%= staff.email %></td>
           <td><%= staff.password %></td>
-          <td><%= link_to "削除", managers_staff_path(staff.id), method: :delete, 'confirm' => "本当に削除しますか"%></td>
+          <td><%= link_to "削除", managers_staff_path(staff.id), method: :delete, data: { confirm: '削除しますか？' }%></td>
         </tr>
       </tbody>
     <% end %>

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  namespace :staffs do
+    get 'classifications/new'
+    get 'classifications/index'
+    get 'classifications/edit'
+  end
   root to: 'homes#top'
   get 'homes/about' => 'homes#about'
 
@@ -18,6 +23,7 @@ Rails.application.routes.draw do
   namespace :staffs do
     resources :staffs, only: [:edit, :update]
     resources :fixed_assets, except: [:edit, :destroy]
+    resources :classifications, except: [:show]
   end
 
   namespace :managers do

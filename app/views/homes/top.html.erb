@@ -1,15 +1,15 @@
 <div class="row">
   <div class="top-image d-flex justify-content-center align-items-center ">
    <% unless staff_signed_in? || manager_signed_in? %>
-    <div class="text-center bg-light py-4 px-3 col-md-3 mx-auto rounded d-block ">
+    <div class="text-center col-md-3 mx-auto rounded d-block ">
       <div class="mb-5">
         <h2 class="mb-5 mx-0"><strong>担当者</strong></h2>
-        <span class="btn btn-light"><%= link_to "新規登録", new_staff_registration_path %></span>
-        <span class="ml-5 btn btn-light"><%= link_to "ログイン", new_staff_session_path %></span>
+        <span><%= link_to "新規登録", new_staff_registration_path, class: "btn btn-primary" %></span>
+        <span class="ml-5 "><%= link_to "ログイン", new_staff_session_path, class: "btn btn-success" %></span>
       </div>
       <div>
         <h2 class="mb-5 mx-0"><strong>管理職</strong></h2>
-        <span class="btn btn-light"><%= link_to "ログイン", new_manager_session_path %></span>
+        <span><%= link_to "ログイン", new_manager_session_path, class: "btn btn-success" %></span>
       </div>
     </div>
    <% end %>

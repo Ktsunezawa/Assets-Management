@@ -19,7 +19,7 @@
           <ul class="navbar-nav ml-auto">
             <% if staff_signed_in? %>
               <li class="mr-3 pt-3 btn btn-light">
-                <%= link_to "マイページ", edit_staffs_staffs_path(current_staff.id) %>
+                <%= link_to "マイページ", edit_staffs_staff_path(current_staff.id) %>
               </li>
               <li class="mr-3 pt-3 btn btn-light">
                 <%= link_to "資産一覧" %>
@@ -43,7 +43,7 @@
               </li>
             <% elsif manager_signed_in? %>
               <li class="mr-3 pt-3 btn btn-light">
-                <%= link_to "担当者一覧", managers_staffs_path%>
+                <%= link_to "担当者一覧", managers_staffs_path %>
               </li>
               <li class="mr-3 pt-3 btn btn-light">
                 <%= link_to "資産一覧" %>

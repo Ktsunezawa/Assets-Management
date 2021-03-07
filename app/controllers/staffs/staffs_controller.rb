@@ -8,8 +8,8 @@ class Staffs::StaffsController < ApplicationController
   def update
     @staff = current_staff
     if @staff.update(staff_params)
-     bypass_sign_in(@staff)
-     redirect_to edit_staffs_staffs_path
+      bypass_sign_in(@staff)
+      redirect_to edit_staffs_staff_path
     else
       render 'edit'
     end

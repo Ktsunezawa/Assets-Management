@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_064856) do
+ActiveRecord::Schema.define(version: 2021_03_08_022805) do
+
+  create_table "classification_details", force: :cascade do |t|
+    t.integer "classification"
+    t.string "detail"
+    t.integer "useful_life"
+    t.integer "period"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "classifications", force: :cascade do |t|
+    t.integer "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fixed_assets", force: :cascade do |t|
+    t.integer "staff_id"
+    t.integer "base_id"
+    t.string "name", default: "", null: false
+    t.integer "cost"
+    t.text "memo"
+    t.date "acquisition_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "managers", force: :cascade do |t|
     t.string "email", default: "", null: false

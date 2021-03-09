@@ -1,5 +1,4 @@
 class Staffs::FixedAssetsController < ApplicationController
-
   def new
     @fixed_asset = FixedAsset.new
   end
@@ -15,7 +14,7 @@ class Staffs::FixedAssetsController < ApplicationController
   def create
     fixed_asset = FixedAsset.new(fixed_asset_params)
     if fixed_asset.save
-       redirect_to root_path #申請一覧へ飛ばす
+      redirect_to root_path # 申請一覧へ飛ばす
     else
       render 'new'
     end

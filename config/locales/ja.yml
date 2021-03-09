@@ -2,13 +2,14 @@ ja:
   activerecord:
     errors:
       messages:
-        record_invalid: 'バリデーションに失敗しました: %{errors}'
+        record_invalid: "バリデーションに失敗しました: %{errors}"
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
     models:
       staff: 担当者
       manager: 管理職
+      classification_detail: 資産区分詳細
       fixed_asset: 固定資産
       base: 拠点
     attributes:
@@ -22,6 +23,11 @@ ja:
         email: 名前
         password: パスワード
         remember_me: ログイン登録
+      classification_detail:
+        classification: 資産区分
+        detail: 詳細
+        useful_life: 耐用年数
+        period: 耐用年数（月）
       fixed_asset:
         name: 資産名
         cost: 総額（税抜）

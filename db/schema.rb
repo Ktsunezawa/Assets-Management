@@ -10,6 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2021_03_08_022805) do
+
+  create_table "classification_details", force: :cascade do |t|
+    t.integer "classification"
+    t.string "detail"
+    t.integer "useful_life"
+    t.integer "period"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 ActiveRecord::Schema.define(version: 2021_03_07_073933) do
 
   create_table "bases", force: :cascade do |t|

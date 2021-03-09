@@ -10,6 +10,8 @@ ja:
       staff: 担当者
       manager: 管理職
       classification_detail: 資産区分詳細
+      fixed_asset: 固定資産
+      base: 拠点
     attributes:
       staff:
         name: 名前
@@ -26,6 +28,13 @@ ja:
         detail: 詳細
         useful_life: 耐用年数
         period: 耐用年数（月）
+      fixed_asset:
+        name: 資産名
+        cost: 総額（税抜）
+        memo: メモ
+        acquisition_date: 取得日
+      base:
+        name: 拠点名
   date:
     abbr_day_names:
     - 日

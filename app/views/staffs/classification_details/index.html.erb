@@ -1,6 +1,5 @@
 <div class="container row mx-auto mt-5">
-
-  <h2 class="mb-4">資産区分一覧</h2>
+  <h2 class="mx-auto mb-4">資産区分一覧</h2>
   <div class="col-md-12 text-right mb-4">
     <%= link_to "新規区分作成", new_staffs_classification_detail_path, class: "btn btn-primary" %>
   </div>
@@ -11,7 +10,8 @@
         <th class="col-md-4">詳細</th>
         <th class="col-md-2">耐用年数</th>
         <th class="col-md-2">耐用年数（月）</th>
-        <th class="col-md-2"></th>
+        <th class="col-md-1"></th>
+        <th class="col-md-1"></th>
       </tr>
     </thead>
     <% @classification_details.each do |classification_detail| %>
@@ -19,10 +19,10 @@
         <tr class="row">
           <td class="col-md-2"><%= classification_detail.classification %></td>
           <td class="col-md-4"><%= classification_detail.detail %></td>
-          <td class="col-md-2"><%= classification_detail.useful_life %></td>
-          <td class="col-md-2"><%= classification_detail.period %></td>
-          <td class="col-md-2"><%= link_to "編集", edit_staffs_classification_detail_path(classification_detail.id), class: "btn btn-success" %>
-              <%= link_to "削除", staffs_classification_detail_path(classification_detail.id), class: "btn btn-danger", method: :delete %></td>
+          <td class="col-md-2"><%= classification_detail.useful_life %>年</td>
+          <td class="col-md-2"><%= classification_detail.period %>ヵ月</td>
+          <td class="col-md-1"><%= link_to "編集", edit_staffs_classification_detail_path(classification_detail.id), class: "btn btn-success" %></td>
+          <td class="col-md-1"><%= link_to "削除", staffs_classification_detail_path(classification_detail.id), class: "btn btn-danger", method: :delete %></td>
         </tr>
       </tbody>
     <% end %>

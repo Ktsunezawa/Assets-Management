@@ -2,7 +2,7 @@ ja:
   activerecord:
     errors:
       messages:
-        record_invalid: "バリデーションに失敗しました: %{errors}"
+        record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
@@ -33,6 +33,12 @@ ja:
         cost: 総額（税抜）
         memo: メモ
         acquisition_date: 取得日
+        base_name: 拠点名
+        classification: 資産区分・詳細
+        month_cost: 月額費用（税抜）
+        image: 写真
+        useful_life: 耐用年数
+        period: 耐用年数（月）
       base:
         name: 拠点名
   date:

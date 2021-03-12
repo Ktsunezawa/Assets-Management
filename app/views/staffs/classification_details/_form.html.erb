@@ -1,6 +1,6 @@
      <div class="field row mb-4">
       　<span class="col-md-5"><%= f.label :classification %></span>
-      　<span class="col-md-5"><%= f.select :classification, ClassificationDetail.classifications.keys.to_a %></span>
+      　<span class="col-md-5"><%= f.select :classification, options_for_select(ClassificationDetail.classifications) %></span>
      </div>
      <div class="field row mb-4">
        <span class="col-md-5"><%= f.label :detail %></span>

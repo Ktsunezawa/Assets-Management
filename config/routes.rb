@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get 'classifications/index'
     get 'classifications/edit'
   end
+
   root to: 'homes#top'
   get 'homes/about' => 'homes#about'
 
@@ -25,11 +26,13 @@ Rails.application.routes.draw do
     resources :fixed_assets, except: [:edit, :destroy]
     resources :classification_details, except: [:show]
     resources :bases, except: [:show, :edit, :update]
-
+    resources :post_images, only: [:create, :destroy]
+    get 'fixed_assets/get_detail/:classification' => 'fixed_assets#get_detail'
+    get 'fixed_assets/get_useful_life/:detail' => 'fixed_assets#get_useful_life'
   end
 
   namespace :managers do
     resources :staffs, only: [:index, :destroy]
     resources :fixed_assets, only: [:index, :show, :destroy]
-    end
+  end
 end

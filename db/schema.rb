@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_08_022805) do
+ActiveRecord::Schema.define(version: 2021_03_09_052756) do
+
+  create_table "bases", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "classification_details", force: :cascade do |t|
     t.integer "classification"
@@ -21,17 +27,10 @@ ActiveRecord::Schema.define(version: 2021_03_08_022805) do
     t.datetime "updated_at", null: false
   end
 
-ActiveRecord::Schema.define(version: 2021_03_07_073933) do
-
-  create_table "bases", force: :cascade do |t|
-    t.string "name", default: "", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "fixed_assets", force: :cascade do |t|
     t.integer "staff_id"
     t.integer "base_id"
+    t.integer "classification_detail_id"
     t.string "name", default: "", null: false
     t.integer "cost"
     t.text "memo"
@@ -50,6 +49,13 @@ ActiveRecord::Schema.define(version: 2021_03_07_073933) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_managers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true
+  end
+
+  create_table "post_images", force: :cascade do |t|
+    t.integer "fixed_asset_id"
+    t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "staffs", force: :cascade do |t|

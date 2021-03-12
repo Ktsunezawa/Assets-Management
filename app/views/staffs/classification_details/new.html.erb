@@ -1,7 +1,7 @@
 <div class="container row mx-auto mt-5 mb-5">
   <div class="text-center col-md-6 mx-auto">
    <h2 class="mb-5">資産区分　新規作成</h2>
-   <% render 'errors/error', model: @classification_detail %>
+   <%= render 'errors/error', model: @classification_detail %>
    <%= form_with model: @classification_detail, url: staffs_classification_details_path, local: true do |f| %>
      <%= render 'form', f: f %>
      <div class="ax-auto d-block">

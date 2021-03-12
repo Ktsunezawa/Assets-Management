@@ -1,4 +1,5 @@
 class ClassificationDetail < ApplicationRecord
+  has_one :fixed_asset
 
   enum classification: {
     建物: 0,
@@ -16,4 +17,5 @@ class ClassificationDetail < ApplicationRecord
   validates :detail, presence: true
   validates :useful_life, numericality: { only_integer: true }
   validates :period, numericality: { only_integer: true }
+
 end

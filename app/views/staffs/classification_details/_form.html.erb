@@ -1,16 +1,13 @@
-     <div class="field row mb-4">
-      　<span class="col-md-5"><%= f.label :classification %></span>
-      　<span class="col-md-5"><%= f.select :classification, options_for_select(ClassificationDetail.classifications) %></span>
-     </div>
-     <div class="field row mb-4">
-       <span class="col-md-5"><%= f.label :detail %></span>
-       <span class="col-md-7"><%= f.text_area :detail %></span>
-     </div>
-     <div class="field row mb-4">
-       <span class="col-md-5 ml-3"><%= f.label :useful_life %></span>
-       <span class="col-md-6 ml-2"><%= f.number_field :useful_life %></span>
-     </div>
-     <div class="field row mb-5">
-       <span class="col-md-5 ml-4 pl-5"><%= f.label :period %></span>
-       <span class="col-md-6"><%= f.number_field :period %></span>
-     </div>
+     <tr class="row mb-4">
+      　<th class="col-md-6"><%= f.label :classification %></th>
+      　<td class="col-md-6"><%= f.select :classification, ClassificationDetail.classifications.keys.to_a %></td>
+     </tr>
+     <tr class="row mb-4">
+       <th class="col-md-5"><%= f.label :detail %></th>
+       <td class="col-md-7"><%= f.text_area :detail, size: "50x5" %></td>
+     </tr>
+     <tr class="row mb-4">
+       <th class="col-md-6 "><%= f.label :useful_life %></th>
+       <td class="col-md-6 "><%= f.number_field :useful_life %>年</td>
+     </tr>
+

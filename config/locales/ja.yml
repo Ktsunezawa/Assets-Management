@@ -34,7 +34,8 @@ ja:
         memo: メモ
         acquisition_date: 取得日
         base_name: 拠点名
-        classification: 資産区分・詳細
+        classification: 資産区分
+        detail: 詳細
         month_cost: 月額費用（税抜）
         image: 写真
         useful_life: 耐用年数

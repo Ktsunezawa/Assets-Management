@@ -1,12 +1,18 @@
 <div class="container row mx-auto mt-5 mb-5">
-  <div class="text-center col-md-6 mx-auto">
-   <h2 class="mb-5">資産区分　編集</h2>
+  <div class="col-md-4 mx-auto">
+   <h2 class="text-center mb-5">資産区分　編集</h2>
    <%= render 'errors/error', model: @classification_detail %>
+   <table>
    <%= form_with model: @classification_detail, url: staffs_classification_detail_path,  local: true do |f| %>
      <%= render 'form', f: f %>
-     <div class="ax-auto d-block">
-       <%= f.submit "更新", class: "btn btn-success" %>
-     </div>
+     <tr class="row mb-5">
+       <th class="col-md-6"><%= f.label :period %></th>
+       <td class="col-md-6"><%= year_to_month(@classification_detail.useful_life) %>ヵ月</td>
+     </tr>
+     <tr class="text-center">
+       <td><%= f.submit "更新", class: "btn btn-success mr-5 px-3" %></td>
+     </tr>
    <% end %>
+   </table>
   </div>
 </div>

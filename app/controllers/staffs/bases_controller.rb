@@ -10,7 +10,7 @@ class Staffs::BasesController < ApplicationController
     @bases = Base.all
     @base = Base.new(base_params)
     if @base.save
-       redirect_to staffs_bases_path
+      redirect_to staffs_bases_path
     else
       render :index
     end

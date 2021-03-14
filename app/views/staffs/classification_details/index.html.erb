@@ -20,7 +20,7 @@
           <td class="col-md-2"><%= classification_detail.classification %></td>
           <td class="col-md-4"><%= classification_detail.detail %></td>
           <td class="col-md-2"><%= classification_detail.useful_life %>年</td>
-          <td class="col-md-2"><%= classification_detail.period %>ヵ月</td>
+          <td class="col-md-2"><%= year_to_month(classification_detail.useful_life) %>ヵ月</td>
           <td class="col-md-1"><%= link_to "編集", edit_staffs_classification_detail_path(classification_detail.id), class: "btn btn-success" %></td>
           <td class="col-md-1"><%= link_to "削除", staffs_classification_detail_path(classification_detail.id), class: "btn btn-danger", method: :delete %></td>
         </tr>

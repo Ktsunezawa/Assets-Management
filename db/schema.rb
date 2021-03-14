@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_052756) do
+ActiveRecord::Schema.define(version: 2021_03_12_103000) do
 
   create_table "bases", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_03_09_052756) do
 
   create_table "classification_details", force: :cascade do |t|
     t.integer "classification"
-    t.string "detail"
+    t.string "detail", default: ""
     t.integer "useful_life"
     t.integer "period"
     t.datetime "created_at", null: false
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2021_03_09_052756) do
     t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["fixed_asset_id"], name: "index_post_images_on_fixed_asset_id"
   end
 
   create_table "staffs", force: :cascade do |t|

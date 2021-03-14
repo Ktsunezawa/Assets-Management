@@ -1,1 +1,3 @@
-<%= f.select :detail, '' , {:include_blank => true}, { :onchange => "changeUsefulLife()"} %>
+<td class="col-md-6" id="detail_select_id">
+  <%= f.select :classification_detail_id, {:include_blank => ""}, { prompt: "区分を選択して下さい" }, { :onchange => "changeUsefulLife()" } %>
+</td>

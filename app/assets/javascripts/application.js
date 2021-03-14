@@ -16,4 +16,16 @@
 //= require turbolinks
 //= require_tree .
 
+  function changeDetail(){
+    var classification = $('#classification_select_id select option:selected').val();
+
+    console.log(classification)
+    $.ajax({
+      url: "/staffs/fixed_assets/fixed_assets/get_detail/" + classification + "/",
+      type: "GET",
+      data: {
+        classification: classification
+      }
+    })
+  }
 

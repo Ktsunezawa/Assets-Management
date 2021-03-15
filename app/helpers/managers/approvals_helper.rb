@@ -1,0 +1,2 @@
+module Managers::ApprovalsHelper
+end

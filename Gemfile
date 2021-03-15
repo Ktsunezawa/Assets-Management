@@ -76,4 +76,6 @@ gem 'acts-as-taggable-on', '~> 6.0'
 gem 'ransack'
 gem 'rubocop-airbnb'
 gem 'dotenv-rails'
-gem 'carrierwave', '~> 2.0'
+group :production do
+  gem 'mysql2'
+end

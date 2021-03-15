@@ -21,9 +21,7 @@
       <tbody>
         <tr class="row">
           <td class="col-md-1"><%= fixed_asset.base.name %></td>
-          <%= link_to staffs_fixed_asset_path(fixed_asset) do %>
-            <td class="col-md-2"><%= fixed_asset.name %></td>
-          <% end %>
+          <td class="col-md-2"><%= link_to fixed_asset.name, staffs_fixed_asset_path(fixed_asset) %></td>
           <td class="col-md-1"><%= fixed_asset.classification_detail.classification %></td>
           <td class="col-md-2"><%= fixed_asset.acquisition_date %></td>
           <td class="col-md-1"><%= fixed_asset.classification_detail.useful_life %>年</td>

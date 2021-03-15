@@ -31,10 +31,12 @@ Rails.application.routes.draw do
     resources :post_images, only: [:create, :destroy]
     resources :classification_details, except: [:show]
     resources :bases, except: [:show, :edit, :update]
+    resources :requests
   end
 
   namespace :managers do
     resources :staffs, only: [:index, :destroy]
     resources :fixed_assets, only: [:index, :show, :destroy]
+    resources :approvals
   end
 end

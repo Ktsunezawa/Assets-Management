@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_103000) do
+ActiveRecord::Schema.define(version: 2021_03_14_131758) do
+
+  create_table "approvals", force: :cascade do |t|
+    t.string "staff_id"
+    t.string "integer"
+    t.string "manager_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "bases", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -57,6 +65,15 @@ ActiveRecord::Schema.define(version: 2021_03_12_103000) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["fixed_asset_id"], name: "index_post_images_on_fixed_asset_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.string "staff_id"
+    t.string "integer"
+    t.string "manager_id"
+    t.string "request_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "staffs", force: :cascade do |t|

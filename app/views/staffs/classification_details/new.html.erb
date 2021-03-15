@@ -5,7 +5,7 @@
    <table>
    <%= form_with model: @classification_detail, url: staffs_classification_details_path, local: true do |f| %>
      <%= render 'form', f: f, classification_detail: @classification_detail %>
-     <tr class="text-center ">
+     <tr class="text-center">
        <td><%= f.submit "作成", class: "btn btn-primary mr-5 px-3" %></td>
      </tr>
    <% end %>

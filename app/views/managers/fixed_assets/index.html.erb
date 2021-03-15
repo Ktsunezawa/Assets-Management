@@ -20,16 +20,14 @@
       <tbody>
         <tr class="row">
           <td class="col-md-1"><%= fixed_asset.base.name %></td>
-          <%= link_to managers_fixed_asset_path(fixed_asset) do %>
-            <td class="col-md-1"><%= fixed_asset.name %></td>
-          <% end %>
+          <td class="col-md-1"><%= link_to fixed_asset.name ,managers_fixed_asset_path(fixed_asset) %></td>
           <td class="col-md-1"><%= fixed_asset.classification_detail.classification %></td>
           <td class="col-md-2"><%= fixed_asset.acquisition_date %></td>
           <td class="col-md-1"><%= fixed_asset.classification_detail.useful_life %>年</td>
           <td class="col-md-2"><%= fixed_asset.cost.to_s(:delimited) %>円</td>
           <td class="col-md-1"><%= year_to_month(fixed_asset.classification_detail.useful_life) %>ヵ月</td>
           <td class="col-md-2"><%= month_cost(fixed_asset.cost,fixed_asset.classification_detail.useful_life).to_s(:delimited) %>円/月</td>
-          <td class="col-md-1"><%= link_to "削除", managers_fixed_asset_path(fixed_asset), method: :destroy %></td>
+          <td class="col-md-1"><%= link_to "削除", managers_fixed_asset_path(fixed_asset), method: :destroy, class: "btn btn-danger py-0", data: { confirm: '削除しますか？' } %></td>
       </tbody>
     <% end %>
   </table>

@@ -72,7 +72,7 @@ gem 'jquery-rails'
 gem "pry-byebug"
 gem "font-awesome-sass", "~> 5.13"
 gem "rails-i18n", "~> 5.1"
-gem 'acts-as-taggable-on', '~> 6.0'
+# gem 'acts-as-taggable-on', '~> 6.0'
 gem 'ransack'
 gem 'rubocop-airbnb'
 gem 'dotenv-rails'

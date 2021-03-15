@@ -1,0 +1,11 @@
+<% life_list.each do | life | %>
+<td id="useful_life-<%= life.id %>"  style="display: none">
+  <span class="col-md-3" id="useful_life-<%= life.id %>">
+  <%= life.useful_life %>年
+  <%= f.hidden_field :useful_life, :value => life.useful_life %>
+  </span>
+  <span class="col-md-3" id="period-<%= life.id %>">
+  <%= year_to_month(life.useful_life) %>ヵ月
+  </span>
+</td>
+<% end %>

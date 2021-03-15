@@ -37,10 +37,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
- gem 'capybara', '>= 2.15'
- gem 'rspec-rails'
- gem "factory_bot_rails"
- gem 'faker'
+  gem 'capybara', '>= 2.15'
+  gem 'rspec-rails'
+  gem "factory_bot_rails"
+  gem 'faker'
 end
 
 group :development do
@@ -76,3 +76,6 @@ gem 'acts-as-taggable-on', '~> 6.0'
 gem 'ransack'
 gem 'rubocop-airbnb'
 gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end

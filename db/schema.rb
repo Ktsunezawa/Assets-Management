@@ -10,7 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_064856) do
+ActiveRecord::Schema.define(version: 2021_03_14_131758) do
+
+  create_table "approvals", force: :cascade do |t|
+    t.string "staff_id"
+    t.string "integer"
+    t.string "manager_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bases", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "classification_details", force: :cascade do |t|
+    t.integer "classification"
+    t.string "detail", default: ""
+    t.integer "useful_life"
+    t.integer "period"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fixed_assets", force: :cascade do |t|
+    t.integer "staff_id"
+    t.integer "base_id"
+    t.integer "classification_detail_id"
+    t.string "name", default: "", null: false
+    t.integer "cost"
+    t.text "memo"
+    t.date "acquisition_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "managers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -18,11 +53,27 @@ ActiveRecord::Schema.define(version: 2021_03_04_064856) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_managers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true
+  end
+
+  create_table "post_images", force: :cascade do |t|
+    t.integer "fixed_asset_id"
+    t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fixed_asset_id"], name: "index_post_images_on_fixed_asset_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.string "staff_id"
+    t.string "integer"
+    t.string "manager_id"
+    t.string "request_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "staffs", force: :cascade do |t|

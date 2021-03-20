@@ -1,4 +1,10 @@
 ja:
+  views:
+    pagination:
+      first: 最初
+      last: 最後
+      previous: 前
+      next: 次
   activerecord:
     errors:
       messages:
@@ -40,6 +46,9 @@ ja:
         image: 写真
         useful_life: 耐用年数
         period: 耐用年数（月）
+        base_id: 拠点名
+        classification_detail: 資産区分
+        post_images_images: 写真
       base:
         name: 拠点名
   date:

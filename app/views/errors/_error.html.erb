@@ -1,8 +1,8 @@
-<div class="error_explanation">
+<div class="error_explanation text-center">
   <% if model.errors.any? %>
     <%= model.errors.count %>件のエラーが発生しました
     <% model.errors.full_messages.each do |message| %>
-      <ul class="mt-3">
+      <ul class="text-center mt-3">
         <li><%= message %></li>
       </ul>
     <% end %>

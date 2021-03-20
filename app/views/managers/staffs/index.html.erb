@@ -1,23 +1,26 @@
-<div class="container mt-5">
+<div class="container row mx-auto mt-5">
+ <div class="col-md-8 mx-auto">
   <h2 class="text-center mb-4">担当者一覧</h2>
   <table class="table text-center">
     <thead>
       <tr>
         <th>担当者名</th>
         <th>メールアドレス</th>
-        <th>パスワード</th>
         <th class="colspan-3"></th>
       </tr>
     </thead>
     <% @staffs.each do |staff| %>
+    <% unless staff.discarded? %>
       <tbody>
         <tr>
           <td><%= staff.name %></td>
           <td><%= staff.email %></td>
-          <td><%= staff.password %></td>
-          <td><%= link_to "削除", managers_staff_path(staff.id), method: :delete, data: { confirm: '削除しますか？' }%></td>
+          <td><%= link_to "削除", managers_staff_path(staff.id), method: :delete, class: "btn btn-danger", data: { confirm: '削除しますか？' }%></td>
         </tr>
       </tbody>
     <% end %>
+    <% end %>
   </table>
+  <div class="mx-auto"><%= paginate @staffs %></div>
+ </div>
 </div>

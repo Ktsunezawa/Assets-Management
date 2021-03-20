@@ -10,34 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_14_131758) do
-
-  create_table "approvals", force: :cascade do |t|
-    t.string "staff_id"
-    t.string "integer"
-    t.string "manager_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2021_03_20_080934) do
 
   create_table "bases", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_bases_on_discarded_at"
   end
 
   create_table "classification_details", force: :cascade do |t|
     t.integer "classification"
     t.string "detail", default: ""
     t.integer "useful_life"
-    t.integer "period"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_classification_details_on_discarded_at"
   end
 
   create_table "fixed_assets", force: :cascade do |t|
     t.integer "staff_id"
     t.integer "base_id"
+    t.integer "request_status", default: 0, null: false
     t.integer "classification_detail_id"
     t.string "name", default: "", null: false
     t.integer "cost"
@@ -67,15 +63,6 @@ ActiveRecord::Schema.define(version: 2021_03_14_131758) do
     t.index ["fixed_asset_id"], name: "index_post_images_on_fixed_asset_id"
   end
 
-  create_table "requests", force: :cascade do |t|
-    t.string "staff_id"
-    t.string "integer"
-    t.string "manager_id"
-    t.string "request_status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "staffs", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -85,6 +72,8 @@ ActiveRecord::Schema.define(version: 2021_03_14_131758) do
     t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_staffs_on_discarded_at"
     t.index ["email"], name: "index_staffs_on_email", unique: true
     t.index ["reset_password_token"], name: "index_staffs_on_reset_password_token", unique: true
   end

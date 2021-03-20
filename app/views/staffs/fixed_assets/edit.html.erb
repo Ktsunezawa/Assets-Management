@@ -1,8 +1,8 @@
 <div class="container row mx-auto mt-5 mb-5">
   <div class="col-md-6 mx-auto">
-   <h2 class="text-center mb-5">資産登録申請</h2>
+   <h2 class="text-center mb-5">資産編集</h2>
 
-   <%= form_with model: @fixed_asset, url: staffs_fixed_assets_path, local: true do |f| %>
+   <%= form_with model: @fixed_asset, url: staffs_fixed_asset_path, local:true do |f| %>
    <%= render 'errors/error', model: @fixed_asset %>
     <table>
      <tr class="field row mb-4">
@@ -44,7 +44,7 @@
      </tr>
      <td><%= f.hidden_field :request_status, value: "申請中" %></td>
      <tr>
-       <td class="text-center"><%= f.submit "申請", class: "text-center btn btn-success ml-5 px-4" %></td>
+       <td class="text-center"><%= f.submit "再申請", class: "text-center btn btn-success ml-5 px-4" %></td>
      </tr>
     </table>
    <% end %>

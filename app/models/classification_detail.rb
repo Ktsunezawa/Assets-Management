@@ -1,4 +1,7 @@
 class ClassificationDetail < ApplicationRecord
+
+  include Discard::Model
+
   has_one :fixed_asset
 
   enum classification: {
@@ -14,8 +17,7 @@ class ClassificationDetail < ApplicationRecord
     その他無形資産: 9
   }
 
-  validates :detail, presence: true
-  validates :useful_life, numericality: { only_integer: true }
-  validates :period, numericality: { only_integer: true }
+  validates :classification, :detail,  presence: true
+  validates :useful_life, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 
 end

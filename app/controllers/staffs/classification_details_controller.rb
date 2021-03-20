@@ -6,7 +6,8 @@ class Staffs::ClassificationDetailsController < ApplicationController
   end
 
   def index
-    @classification_details = ClassificationDetail.all
+    @q = ClassificationDetail.ransack(params[:q])
+    @classification_details = @q.result(distinct: true).page(params[:page]).reverse_order
   end
 
   def edit
@@ -33,13 +34,14 @@ class Staffs::ClassificationDetailsController < ApplicationController
 
   def destroy
     classification_detail = ClassificationDetail.find(params[:id])
-    classification_detail.destroy
+    classification_detail.discard
     redirect_to staffs_classification_details_path
   end
 
   private
 
   def classification_detail_params
-    params.require(:classification_detail).permit(:classification, :detail, :useful_life, :period)
+    params.require(:classification_detail).permit(:classification, :detail, :useful_life)
   end
+
 end

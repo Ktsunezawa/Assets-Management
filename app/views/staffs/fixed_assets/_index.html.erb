@@ -1,0 +1,48 @@
+    <% if staff_signed_in? %>
+        <% fixed_assets.each do |fixed_asset| %>
+          <tbody>
+            <tr class="row">
+              <% if fixed_asset.request_status == "申請中" %>
+                <td class="col-md-1"><%= fixed_asset.base.name %></td>
+                <td class="col-md-1"><%= link_to fixed_asset.name, staffs_fixed_asset_path(fixed_asset), class: "color-blue" %></td>
+                <td class="col-md-1"><%= fixed_asset.classification_detail.classification %></td>
+                <td class="col-md-2"><%= fixed_asset.acquisition_date %></td>
+                <td class="col-md-1"><%= fixed_asset.classification_detail.useful_life %>年</td>
+                <td class="col-md-2"><%= fixed_asset.cost.to_s(:delimited) %>円</td>
+                <td class="col-md-1"><%= year_to_month(fixed_asset.classification_detail.useful_life) %>ヵ月</td>
+                <td class="col-md-2"><%= month_cost(fixed_asset.cost,fixed_asset.classification_detail.useful_life).to_s(:delimited) %>円/月</td>
+                <td class="col-md-1"><%= link_to "取下", withdrawal_staffs_fixed_asset_path(fixed_asset, fixed_asset.id), method: :patch, class: "btn btn-danger" %></td>
+              <% elsif fixed_asset.request_status == "修正中"  %>
+                <td class="col-md-1"><%= fixed_asset.base.name %></td>
+                <td class="col-md-1"><%= link_to fixed_asset.name, staffs_fixed_asset_path(fixed_asset) %></td>
+                <td class="col-md-1"><%= fixed_asset.classification_detail.classification %></td>
+                <td class="col-md-2"><%= fixed_asset.acquisition_date %></td>
+                <td class="col-md-1"><%= fixed_asset.classification_detail.useful_life %>年</td>
+                <td class="col-md-2"><%= fixed_asset.cost.to_s(:delimited) %>円</td>
+                <td class="col-md-1"><%= year_to_month(fixed_asset.classification_detail.useful_life) %>ヵ月</td>
+                <td class="col-md-2"><%= month_cost(fixed_asset.cost,fixed_asset.classification_detail.useful_life).to_s(:delimited) %>円/月</td>
+                <td class="col-md-1"><%= link_to "編集", edit_staffs_fixed_asset_path(fixed_asset), class: "btn btn-success" %></td>
+              <% end %>
+            </tr>
+          </tbody>
+        <% end %>
+    <% elsif manager_signed_in? %>
+        <% fixed_assets.each do |fixed_asset| %>
+          <tbody>
+            <tr class="row">
+              <% if fixed_asset.request_status == "申請中" %>
+              　<td class="col-md-1"><%= fixed_asset.staff.name %></td>
+                <td class="col-md-1"><%= fixed_asset.base.name %></td>
+                <td class="col-md-1"><%= link_to fixed_asset.name, managers_fixed_asset_path(fixed_asset) %></td>
+                <td class="col-md-1"><%= fixed_asset.classification_detail.classification %></td>
+                <td class="col-md-1"><%= fixed_asset.acquisition_date.strftime('%Y/%m') %></td>
+                <td class="col-md-1"><%= fixed_asset.classification_detail.useful_life %>年</td>
+                <td class="col-md-2"><%= fixed_asset.cost.to_s(:delimited) %>円</td>
+                <td class="col-md-1"><%= year_to_month(fixed_asset.classification_detail.useful_life) %>ヵ月</td>
+                <td class="col-md-2"><%= month_cost(fixed_asset.cost,fixed_asset.classification_detail.useful_life).to_s(:delimited) %>円/月</td>
+        　       <td class="col-md-1"><%= link_to "詳細", managers_fixed_asset_path(fixed_asset), class: "btn btn-secondary" %></td>
+              <% end %>
+            </tr>
+          </tbody>
+        <% end %>
+    <% end %>

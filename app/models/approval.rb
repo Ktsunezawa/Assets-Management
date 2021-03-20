@@ -1,2 +1,0 @@
-class Approval < ApplicationRecord
-end

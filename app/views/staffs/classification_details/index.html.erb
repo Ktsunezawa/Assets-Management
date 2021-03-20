@@ -1,7 +1,8 @@
 <div class="container row mx-auto mt-5">
   <h2 class="mx-auto mb-4">資産区分一覧</h2>
-  <div class="col-md-12 text-right mb-4">
-    <%= link_to "新規区分作成", new_staffs_classification_detail_path, class: "btn btn-primary" %>
+  <div class="col-md-12 d-flex justify-content-end mb-4">
+    <%= link_to "区分作成", new_staffs_classification_detail_path, class: "btn btn-primary mr-3" %>
+    <%= render 'searchs/search_classification_detail', url: staffs_classification_details_path, q: @q %>
   </div>
   <table class="table text-center">
     <thead>
@@ -15,6 +16,7 @@
       </tr>
     </thead>
     <% @classification_details.each do |classification_detail| %>
+    <% unless classification_detail.discarded? %>
       <tbody>
         <tr class="row">
           <td class="col-md-2"><%= classification_detail.classification %></td>
@@ -26,5 +28,7 @@
         </tr>
       </tbody>
     <% end %>
+    <% end %>
   </table>
+  <div class="mx-auto"><%= paginate @classification_details %></div>
 </div>

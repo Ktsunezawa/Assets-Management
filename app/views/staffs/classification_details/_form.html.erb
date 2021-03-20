@@ -1,6 +1,6 @@
      <tr class="row mb-4">
       　<th class="col-md-6"><%= f.label :classification %></th>
-      　<td class="col-md-6"><%= f.select :classification, ClassificationDetail.classifications.keys.to_a %></td>
+      　<td class="col-md-6"><%= f.select :classification, ClassificationDetail.classifications.keys.to_a, {prompt: "選択して下さい"} %></td>
      </tr>
      <tr class="row mb-4">
        <th class="col-md-5"><%= f.label :detail %></th>

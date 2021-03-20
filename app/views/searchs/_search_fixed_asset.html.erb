@@ -1,0 +1,8 @@
+<%= search_form_for q, url: url do |f| %>
+  <div class="input-group d-flex justify-content-end">
+    <%= f.search_field :base_name_or_name_cont, placeholder: '拠点名or資産名' %>
+    <div class="input-group-append">
+      <%= f.submit "検索", class: "btn btn-secondary" %>
+    </div>
+  </div>
+<% end %>

@@ -62,8 +62,8 @@
        <% elsif fixed_asset.request_status == "approved" %>
         <tr class="text-center">
           <td>
-            <%= link_to "修正", remand_managers_fixed_asset_path(fixed_asset_id: fixed_asset.id), method: :patch, class: "btn btn-success ml-5 px-4" %>
-            <%= link_to "削除", erase_managers_fixed_asset_path(fixed_asset_id: fixed_asset.id), method: :patch, class: "btn btn-danger px-4" %>
+            <%= link_to "修正", remand_managers_fixed_asset_path(fixed_asset_id: fixed_asset.id), method: :patch, class: "btn btn-success ml-4 px-4" %>
+            <%= link_to "削除", erase_managers_fixed_asset_path(fixed_asset_id: fixed_asset.id), method: :patch, class: "btn btn-danger ml-5 px-4" %>
           </td>
         </tr>
     　 <% end %>

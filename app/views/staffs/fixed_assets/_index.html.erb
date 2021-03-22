@@ -30,7 +30,7 @@
               <td class="col-md-1"><%= fixed_asset.staff.name %></td>
               <td class="col-md-1"><%= fixed_asset.base.name %></td>
               <td class="col-md-1"><%= link_to fixed_asset.name, managers_fixed_asset_path(fixed_asset), class: "color-blue" %></td>
-              <td class="col-md-1"><%= fixed_asset.classification_detail.classification %></td>
+              <td class="col-md-1"><%= fixed_asset.classification_detail.classification_i18n %></td>
               <td class="col-md-1"><%= fixed_asset.acquisition_date.strftime('%Y/%m') %></td>
               <td class="col-md-1"><%= fixed_asset.classification_detail.useful_life %>年</td>
               <td class="col-md-2"><%= fixed_asset.cost.to_s(:delimited) %>円</td>

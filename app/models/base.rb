@@ -1,5 +1,4 @@
 class Base < ApplicationRecord
-
   include Discard::Model
 
   has_many :fixed_assets

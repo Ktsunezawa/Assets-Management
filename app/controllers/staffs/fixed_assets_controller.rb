@@ -41,7 +41,7 @@ class Staffs::FixedAssetsController < ApplicationController
 
   def withdrawal
     fixed_asset = FixedAsset.find_by(request_status: 0, id: params[:id])
-    fixed_asset.修正中!
+    fixed_asset.fix!
     redirect_to staffs_fixed_assets_path
   end
 
@@ -50,9 +50,9 @@ class Staffs::FixedAssetsController < ApplicationController
     @life_list = ClassificationDetail.all.select('id', 'useful_life')
     @fixed_asset = FixedAsset.find(params[:id])
     if @fixed_asset.update(fixed_asset_params)
-       redirect_to staffs_fixed_assets_path
+      redirect_to staffs_fixed_assets_path
     else
-       render :edit
+      render :edit
     end
   end
 
@@ -86,11 +86,8 @@ class Staffs::FixedAssetsController < ApplicationController
       :classification_detail_id,
       classification_detail_attributes: [:classification, :detail, :useful_life],
       post_images_images: []
-      )
-      .merge(staff_id: current_staff.id)
+    ).
+      merge(staff_id: current_staff.id)
   end
 
-  def search_params
-     params.require(:q).permit(:name_cont, :classification_cont, :detail_cont, :useful_life_not_cont)
-  end
 end

@@ -1,7 +1,7 @@
 <div class="container row mx-auto mt-5">
   <h2 class="mx-auto mb-3">申請一覧</h2>
-  <div class="col-md-12 d-flex justify-content-end mb-4">
-    <%= link_to "固定資産登録", new_staffs_fixed_asset_path, class: "btn btn-primary mr-3" %>
+  <div class="col-md-12 text-right mb-4">
+    <%= link_to "固定資産登録", new_staffs_fixed_asset_path, class: "btn btn-primary mb-2" %>
     <%= render 'searchs/search_fixed_asset', url: staffs_fixed_assets_path, q: @q %>
   </div>
   <table class="table text-center align-middle">

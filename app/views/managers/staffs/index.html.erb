@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <% @staffs.each do |staff| %>
-    <% unless staff.discarded? %>
+     <% unless staff.discarded? %>
       <tbody>
         <tr>
           <td><%= staff.name %></td>
@@ -18,9 +18,9 @@
           <td><%= link_to "削除", managers_staff_path(staff.id), method: :delete, class: "btn btn-danger", data: { confirm: '削除しますか？' }%></td>
         </tr>
       </tbody>
-    <% end %>
+     <% end %>
     <% end %>
   </table>
-  <div class="mx-auto"><%= paginate @staffs %></div>
+  <div class="d-flex justify-content-center"><%= paginate @staffs %></div>
  </div>
 </div>

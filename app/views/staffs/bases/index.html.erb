@@ -1,9 +1,9 @@
 <div class="container row mx-auto mt-5">
   <div class="text-center col-md-6 mx-auto">
     <h2 class="mb-4">拠点新規登録</h2>
-　<%= form_with model: @base, url: staffs_bases_path, local: true do |f| %>
-  <table class="table text-center">
-     <%= render 'errors/error', model: @base %>
+　  <%= form_with model: @base, url: staffs_bases_path, local: true do |f| %>
+ 　  <table class="table text-center">
+      <%= render 'errors/error', model: @base %>
       <thead>
         <tr class="row">
           <th class="col-md-6"><%= f.label :name %></th>
@@ -16,26 +16,26 @@
           <th class="col-md-6"><%= f.submit "拠点作成", class: "btn btn-primary" %></th>
         </tr>
       </tbody>
-  </table>
-  <% end %>
-  <h2 class="mb-4">拠点一覧</h2>
-  <table class="table text-center">
-    <thead>
-      <tr class="row">
-        <th class="col-md-6">拠点名</th>
-        <th class="col-md-6"></th>
-      </tr>
-    </thead>
-    <% @bases.each do |base| %>
-    <% unless base.discarded? %>
+    </table>
+    <% end %>
+    <h2 class="mb-4">拠点一覧</h2>
+    <table class="table text-center">
+      <thead>
+        <tr class="row">
+          <th class="col-md-6">拠点名</th>
+          <th class="col-md-6"></th>
+        </tr>
+      </thead>
+      <% @bases.each do |base| %>
+      <% unless base.discarded? %>
       <tbody>
         <tr class="row">
           <td class="col-md-6"><%= base.name %></td>
-          <td class="col-md-6"><%= link_to "削除", staffs_basis_path(base.id), class: "btn btn-danger", method: :delete, data: { confirm: '削除しますか？' } %></td>
+          <td class="col-md-6"><%= link_to "削除", staffs_basis_path(base.id), class: "btn btn-danger", method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
         </tr>
       </tbody>
-    <% end %>
-    <% end %>
-  </table>
+      <% end %>
+      <% end %>
+    </table>
   </div>
 </div>

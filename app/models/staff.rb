@@ -6,9 +6,7 @@ class Staff < ApplicationRecord
 
   include Discard::Model
 
-
   has_many :fixed_assets
 
   validates :name, presence: true
-
 end

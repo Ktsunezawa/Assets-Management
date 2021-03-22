@@ -1,5 +1,5 @@
 class Staffs::ClassificationDetailsController < ApplicationController
-    before_action :authenticate_staff!
+  before_action :authenticate_staff!
 
   def new
     @classification_detail = ClassificationDetail.new
@@ -26,9 +26,9 @@ class Staffs::ClassificationDetailsController < ApplicationController
   def update
     @classification_detail = ClassificationDetail.find(params[:id])
     if @classification_detail.update(classification_detail_params)
-       redirect_to staffs_classification_details_path
+      redirect_to staffs_classification_details_path
     else
-       render :edit
+      render :edit
     end
   end
 
@@ -43,5 +43,4 @@ class Staffs::ClassificationDetailsController < ApplicationController
   def classification_detail_params
     params.require(:classification_detail).permit(:classification, :detail, :useful_life)
   end
-
 end

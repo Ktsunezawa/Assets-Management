@@ -1,23 +1,23 @@
 class ClassificationDetail < ApplicationRecord
-
   include Discard::Model
 
   has_one :fixed_asset
 
   enum classification: {
-    建物: 0,
-    建物附属: 1,
-    構築物: 2,
-    船舶: 3,
-    車両及び運搬具: 4,
-    工具: 5,
-    器具及び備品: 6,
-    機械装置: 7,
-    ソフトウェア: 8,
-    その他無形資産: 9
+    buildings: 0,
+    buildings_and_acconpanying_facilities: 1,
+    structures: 2,
+    vessels: 3,
+    vehicles: 4,
+    tools: 5,
+    furniture_and_fixtures: 6,
+    machinery_and_equipment: 7,
+    land: 8,
+    software: 9,
+    other_intangeble_assets: 10,
   }
 
-  validates :classification, :detail,  presence: true
+  validates :classification, :detail, presence: true
   validates :useful_life, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 
 end

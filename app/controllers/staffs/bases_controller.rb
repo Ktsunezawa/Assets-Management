@@ -27,5 +27,4 @@ class Staffs::BasesController < ApplicationController
   def base_params
     params.require(:base).permit(:name)
   end
-
 end

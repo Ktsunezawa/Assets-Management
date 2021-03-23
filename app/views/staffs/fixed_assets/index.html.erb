@@ -1,0 +1,24 @@
+<div class="container row mx-auto mt-5">
+  <h2 class="mx-auto mb-3">申請一覧</h2>
+  <div class="col-md-12 text-right mb-4">
+    <%= link_to "固定資産登録", new_staffs_fixed_asset_path, class: "btn btn-primary mb-2" %>
+    <%= render 'searchs/search_fixed_asset', url: staffs_fixed_assets_path, q: @q %>
+  </div>
+  <table class="table text-center align-middle">
+    <thead>
+      <tr class="row">
+        <th class="col-md-1">拠点名</th>
+        <th class="col-md-1">資産名</th>
+        <th class="col-md-1">資産区分</th>
+        <th class="col-md-2">取得日</th>
+        <th class="col-md-1">耐用年数</th>
+        <th class="col-md-2">総額費用<br/>（税抜）</th>
+        <th class="col-md-1">耐用年数<br/>（月）</th>
+        <th class="col-md-2">月額費用<br/>（税抜）</th>
+        <th class="col-md-1"></th>
+      </tr>
+    </thead>
+    <%= render 'index', fixed_assets: @fixed_assets %>
+  </table>
+  <div class="mx-auto"><%= paginate @fixed_assets %></div>
+</div>

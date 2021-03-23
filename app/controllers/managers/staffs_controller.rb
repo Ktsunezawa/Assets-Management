@@ -2,12 +2,12 @@ class Managers::StaffsController < ApplicationController
   before_action :authenticate_manager!
 
   def index
-    @staffs = Staff.all
+    @staffs = Staff.page(params[:page]).reverse_order
   end
 
   def destroy
     staff = Staff.find(params[:id])
-    staff.destroy
+    staff.discard
     redirect_to root_path
   end
 end

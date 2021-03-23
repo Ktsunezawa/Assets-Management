@@ -10,7 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_064856) do
+ActiveRecord::Schema.define(version: 2021_03_20_080934) do
+
+  create_table "bases", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_bases_on_discarded_at"
+  end
+
+  create_table "classification_details", force: :cascade do |t|
+    t.integer "classification"
+    t.string "detail", default: ""
+    t.integer "useful_life"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_classification_details_on_discarded_at"
+  end
+
+  create_table "fixed_assets", force: :cascade do |t|
+    t.integer "staff_id"
+    t.integer "base_id"
+    t.integer "request_status", default: 0, null: false
+    t.integer "classification_detail_id"
+    t.string "name", default: "", null: false
+    t.integer "cost"
+    t.text "memo"
+    t.date "acquisition_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "managers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,6 +55,14 @@ ActiveRecord::Schema.define(version: 2021_03_04_064856) do
     t.index ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true
   end
 
+  create_table "post_images", force: :cascade do |t|
+    t.integer "fixed_asset_id"
+    t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fixed_asset_id"], name: "index_post_images_on_fixed_asset_id"
+  end
+
   create_table "staffs", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -33,35 +72,10 @@ ActiveRecord::Schema.define(version: 2021_03_04_064856) do
     t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_staffs_on_discarded_at"
     t.index ["email"], name: "index_staffs_on_email", unique: true
     t.index ["reset_password_token"], name: "index_staffs_on_reset_password_token", unique: true
-  end
-
-  create_table "taggings", force: :cascade do |t|
-    t.integer "tag_id"
-    t.string "taggable_type"
-    t.integer "taggable_id"
-    t.string "tagger_type"
-    t.integer "tagger_id"
-    t.string "context", limit: 128
-    t.datetime "created_at"
-    t.index ["context"], name: "index_taggings_on_context"
-    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
-    t.index ["tag_id"], name: "index_taggings_on_tag_id"
-    t.index ["taggable_id", "taggable_type", "context"], name: "taggings_taggable_context_idx"
-    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
-    t.index ["taggable_id"], name: "index_taggings_on_taggable_id"
-    t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
-    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
-    t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer "taggings_count", default: 0
-    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
 end

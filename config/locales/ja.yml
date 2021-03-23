@@ -1,4 +1,10 @@
 ja:
+  views:
+    pagination:
+      first: 最初
+      last: 最後
+      previous: 前
+      next: 次
   activerecord:
     errors:
       messages:
@@ -9,6 +15,9 @@ ja:
     models:
       staff: 担当者
       manager: 管理職
+      classification_detail: 資産区分詳細
+      fixed_asset: 固定資産
+      base: 拠点
     attributes:
       staff:
         name: 名前
@@ -20,6 +29,49 @@ ja:
         email: 名前
         password: パスワード
         remember_me: ログイン登録
+      classification_detail:
+        classification: 資産区分
+        detail: 詳細
+        useful_life: 耐用年数
+        period: 耐用年数（月）
+      fixed_asset:
+        name: 資産名
+        cost: 総額（税抜）
+        memo: メモ
+        acquisition_date: 取得日
+        base_name: 拠点名
+        classification: 資産区分
+        detail: 詳細
+        month_cost: 月額費用（税抜）
+        image: 写真
+        useful_life: 耐用年数
+        period: 耐用年数（月）
+        base_id: 拠点名
+        classification_detail: 資産区分
+        post_images_images: 写真
+        request_status: 申請状況
+      base:
+        name: 拠点名
+  enums:
+    fixed_asset:
+      request_status:
+        requesting: 申請中
+        approved: 承認済
+        fix: 修正中
+        deleted: 削除済
+    classification_detail:
+      classification:
+        buildings: 建物
+        buildings_and_acconpanying_facilities: 建物附属
+        structures: 構築物
+        vessels: 船舶
+        vehicles: 車両及び運搬具
+        tools: 工具
+        furniture_and_fixtures: 器具及び備品
+        machinery_and_equipment: 機械装置
+        land: 土地
+        software: ソフトウェア
+        other_intangeble_assets: その他無形資産
   date:
     abbr_day_names:
     - 日

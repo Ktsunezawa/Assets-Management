@@ -8,12 +8,15 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <header>
+
+  <body>
+   <div class="wrapper">
+   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid ">
-        <a class="navbar-brand btn btn-light" href="/">
-          <p class="text-center mb-0">Assets</p>
-          <p class="mt-0 mb-0">Management</p>
+        <a class="navbar-brand" href="/">
+          <p class="title text-center mb-0"><strong>Assets</strong></p>
+          <p class="title mt-0 mb-0"><strong>Management</strong></p>
         </a>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
@@ -22,16 +25,16 @@
                 <%= link_to "マイページ", edit_staffs_staff_path(current_staff.id) %>
               </li>
               <li class="mr-3 pt-3 btn btn-light">
-                <%= link_to "資産一覧" %>
+                <%= link_to "資産一覧", approved_index_staffs_fixed_assets_path %>
               </li>
               <li class="mr-3 pt-3 btn btn-light">
-                <%= link_to "資産区分一覧" %>
+                <%= link_to "資産区分一覧", staffs_classification_details_path %>
               </li>
               <li class="mr-3 pt-3 btn btn-light">
-                <%= link_to "申請一覧" %>
+                <%= link_to "申請一覧", staffs_fixed_assets_path %>
               </li>
               <li class="mr-3 pt-3 btn btn-light">
-                <%= link_to "拠点一覧" %>
+                <%= link_to "拠点一覧", staffs_bases_path %>
               </li>
               <li class="mr-3 btn btn-light">
                 <a href="http://www.web-seibunsha.jp/tebiki/pdf/9/pdf_mask/huroku.pdf">
@@ -46,10 +49,10 @@
                 <%= link_to "担当者一覧", managers_staffs_path %>
               </li>
               <li class="mr-3 pt-3 btn btn-light">
-                <%= link_to "資産一覧" %>
+                <%= link_to "資産一覧", approved_index_managers_fixed_assets_path %>
               </li>
               <li class="mr-3 pt-3 btn btn-light">
-                <%= link_to "申請一覧" %>
+                <%= link_to "申請一覧", managers_fixed_assets_path %>
               </li>
               <li class="mr-3 btn btn-light">
                 <a href="http://www.web-seibunsha.jp/tebiki/pdf/9/pdf_mask/huroku.pdf">
@@ -73,8 +76,9 @@
         </div>
       </div>
     </nav>
-  </header>
-  <body>
-    <%= yield %>
+   </header>
+   <%= yield %>
+   <footer class="bg-light"></footer>
+  </div>
   </body>
 </html>

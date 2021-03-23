@@ -10,7 +10,22 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+  function changeDetail(){
+    var classification = $('#classification_select_id select option:selected').val();
+
+    console.log(classification)
+    $.ajax({
+      url: "/staffs/fixed_assets/get_detail/" + classification + "/",
+      type: "GET",
+      data: {
+        classification: classification
+      }
+    })
+  }
+

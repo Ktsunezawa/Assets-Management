@@ -21,7 +21,7 @@
 
     console.log(classification)
     $.ajax({
-      url: "/staffs/fixed_assets/fixed_assets/get_detail/" + classification + "/",
+      url: "/staffs/fixed_assets/get_detail/" + classification + "/",
       type: "GET",
       data: {
         classification: classification

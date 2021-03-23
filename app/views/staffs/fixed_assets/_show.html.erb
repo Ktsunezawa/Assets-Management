@@ -1,0 +1,73 @@
+<div class="container row mx-auto mt-5 mb-5">
+  <div class="col-md-6 mx-auto">
+   <h2 class="text-center  mb-5">資産登録内容</h2>
+    <table class="table">
+     <tr class="field row mb-4">
+      　<th class="col-md-6">拠点名</th>
+      　<td class="col-md-6"><%= fixed_asset.base.name %></td>
+     </tr>
+     <tr class="field row mb-4">
+       <th class="col-md-6">資産名</th>
+       <td class="col-md-6"><%= fixed_asset.name %></td>
+     </tr>
+     <tr class="field row mb-4">
+      　<th class="col-md-6">資産区分</th>
+      　<td class="col-md-6" id="classification_select_id"><%= fixed_asset.classification_detail.classification_i18n %></td>
+     </tr>
+     <tr class="field row mb-4">
+        <th class="col-md-6">詳細</th>
+        <td class="col-md-6"><%= fixed_asset.classification_detail.detail %></td>
+     </tr>
+     <tr class="field row mb-4">
+       <th class="col-md-6">取得日</th>
+       <td class="col-md-6"><%= fixed_asset.acquisition_date %></td>
+     </tr>
+     <tr class="field row mb-4">
+       <th class="col-md-6">耐用年数</th>
+       <td class="col-md-2"><%= fixed_asset.classification_detail.useful_life %>年</td>
+       <td class="col-md-2"><%= year_to_month(fixed_asset.classification_detail.useful_life) %>ヵ月</td>
+     </tr>
+     <tr class="field row mb-4">
+       <th class="col-md-6">総額費用（年額）</th>
+       <td class="col-md-6"><%= fixed_asset.cost.to_s(:delimited) %>円</td>
+     </tr>
+     <tr class="field row mb-5">
+       <th class="col-md-6">総額費用（月額）</th>
+       <td class="col-md-6"><%= month_cost(fixed_asset.cost,fixed_asset.classification_detail.useful_life).to_s(:delimited) %>円/月</td>
+     </tr>
+     <tr class="field row mb-5">
+       <th class="col-md-6">メモ</th>
+       <td class="col-md-6"><%= fixed_asset.memo %></td>
+     </tr>
+     <tr class="field row mb-5">
+       <th class="col-md-6">写真</th>
+       <% @fixed_asset.post_images.each do |image| %>
+         <td class="col-md-6">
+            <%= attachment_image_tag image, :image, size: "250x250" %>
+         </td>
+       <% end %>
+     </tr>
+     <tr class="field row mb-5">
+       <th class="col-md-6">申請状況</th>
+       <td class="col-md-6"><%= fixed_asset.request_status_i18n %></td>
+     </tr>
+     <% if manager_signed_in? %>
+      <% if fixed_asset.request_status == "requesting" %>
+        <tr class="text-center">
+          <td>
+            <%= link_to "承認", allow_managers_fixed_asset_path(fixed_asset_id: fixed_asset.id), method: :patch, class: "btn btn-success ml-4 px-4" %>
+            <%= link_to "差戻", remand_managers_fixed_asset_path(fixed_asset_id: fixed_asset.id), method: :patch, class: "btn btn-danger ml-5 px-4" %>
+          </td>
+        </tr>
+       <% elsif fixed_asset.request_status == "approved" %>
+        <tr class="text-center">
+          <td>
+            <%= link_to "修正", remand_managers_fixed_asset_path(fixed_asset_id: fixed_asset.id), method: :patch, class: "btn btn-success ml-4 px-4" %>
+            <%= link_to "削除", erase_managers_fixed_asset_path(fixed_asset_id: fixed_asset.id), method: :patch, class: "btn btn-danger ml-5 px-4" %>
+          </td>
+        </tr>
+    　 <% end %>
+     <% end %>
+    </table>
+  </div>
+</div>

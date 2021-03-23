@@ -1,0 +1,63 @@
+<div class="container row mx-auto mt-5 mb-5">
+  <div class="col-md-6 mx-auto">
+   <h2 class="text-center mb-5">資産編集</h2>
+   <%= form_with model: @fixed_asset, url: staffs_fixed_asset_path, local:true do |f| %>
+    <%= render 'errors/error', model: @fixed_asset %>
+    <table>
+     <tr class="field row mb-4">
+      　<th class="col-md-6"><%= f.label :base_name %></th>
+      　<td class="col-md-6"><%= f.collection_select(:base_id, @bases, :id, :name, {:prompt => '選択して下さい'} ) %></td>
+     </tr>
+     <tr class="field row mb-4">
+       <th class="col-md-6"><%= f.label :name %></th>
+       <td class="col-md-6"><%= f.text_field :name %></td>
+     </tr>
+     <tr class="field row mb-4">
+      　<th class="col-md-6"><%= f.label :classification %></th>
+      　<td class="col-md-6" id="classification_select_id"><%= f.select :classification, ClassificationDetail.classifications_i18n.invert, { prompt: "選択して下さい" }, { :onchange => "changeDetail()" } %></td>
+     </tr>
+     <tr class="field row mb-4">
+        <th class="col-md-6"><%= f.label :detail %></th>
+        <%= render 'classification_detail', f: f, detail_list: [] %>
+     </tr>
+     <tr class="field row mb-4">
+       <th class="col-md-6"><%= f.label :acquisition_date %></th>
+       <td class="col-md-6"><%= f.date_field :acquisition_date %></td>
+     </tr>
+     <tr class="field row mb-4">
+       <th class="col-md-6"><%= f.label :useful_life %></th>
+       <%= render 'useful_life', f: f, life_list: @life_list  %>
+     </tr>
+     <tr class="field row mb-4">
+       <th class="col-md-6"><%= f.label :cost %></th>
+       <td class="col-md-6"><%= f.text_field :cost %>円</td>
+     </tr>
+     </tr>
+     <tr class="field row mb-5">
+       <th class="col-md-5"><%= f.label :memo %></th>
+       <td class="col-md-7"><%= f.text_area :memo, size: "50x7" %></td>
+     </tr>
+     <tr class="field row mb-5">
+       <th class="col-md-6"><%= f.label :image %></th>
+       <td class="col-md-6"><%= f.attachment_field :post_images_images, multiple: true %></td>
+     </tr>
+     <td><%= f.hidden_field :request_status, value: "requesting" %></td>
+     <tr>
+       <td class="text-center"><%= f.submit "再申請", class: "text-center btn btn-success ml-5 px-4" %></td>
+     </tr>
+    </table>
+   <% end %>
+  </div>
+</div>
+
+<script>
+    function changeUsefulLife() {
+      var LifeId = $('#detail_select_id select option:selected').val();
+
+    <% @life_list.each do |life| %>
+      document.getElementById("useful_life-<%= life.id %>").style.display = "none"
+    <% end %>
+    console.log(`useful_life-${LifeId}`)
+      document.getElementById(`useful_life-${LifeId}`).style.display = "";
+    }
+</script>

@@ -1,0 +1,9 @@
+<%= search_form_for q, url: url do |f| %>
+  <div class="input-group d-flex justify-content-end">
+    <%= f.select :classification_detail_classification_eq, ClassificationDetail.classifications.map{|k, v| [ClassificationDetail.classifications_i18n[k], v]}, { include_blank: true}, class: "border-dark mr-2" %>
+    <%= f.search_field :base_name_or_name_cont, placeholder: '拠点名or資産名' %>
+    <div class="input-group-append">
+      <%= f.submit "検索", class: "btn btn-secondary" %>
+    </div>
+  </div>
+<% end %>

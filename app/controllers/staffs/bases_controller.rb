@@ -18,7 +18,7 @@ class Staffs::BasesController < ApplicationController
 
   def destroy
     base = Base.find(params[:id])
-    base.destroy
+    base.discard
     redirect_to staffs_bases_path
   end
 
@@ -27,5 +27,4 @@ class Staffs::BasesController < ApplicationController
   def base_params
     params.require(:base).permit(:name)
   end
-
 end

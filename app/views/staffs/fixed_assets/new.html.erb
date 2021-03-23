@@ -1,8 +1,8 @@
 <div class="container row mx-auto mt-5 mb-5">
   <div class="col-md-6 mx-auto">
    <h2 class="text-center mb-5">資産登録申請</h2>
-   <%= render 'errors/error', model: @fixed_asset %>
-   <%= form_with model: @fixed_asset, url: staffs_fixed_assets_path do |f| %>
+   <%= form_with model: @fixed_asset, url: staffs_fixed_assets_path, local: true do |f| %>
+    <%= render 'errors/error', model: @fixed_asset %>
     <table>
      <tr class="field row mb-4">
       　<th class="col-md-6"><%= f.label :base_name %></th>
@@ -14,7 +14,7 @@
      </tr>
      <tr class="field row mb-4">
       　<th class="col-md-6"><%= f.label :classification %></th>
-      　<td class="col-md-6" id="classification_select_id"><%= f.select :classification, ClassificationDetail.classifications.keys.to_a, { prompt: "選択して下さい" }, { :onchange => "changeDetail()" } %></td>
+      　<td class="col-md-6" id="classification_select_id"><%= f.select :classification, ClassificationDetail.classifications_i18n.invert, { prompt: "選択して下さい" }, { :onchange => "changeDetail()" } %></td>
      </tr>
      <tr class="field row mb-4">
         <th class="col-md-6"><%= f.label :detail %></th>
@@ -41,7 +41,10 @@
        <th class="col-md-6"><%= f.label :image %></th>
        <td class="col-md-6"><%= f.attachment_field :post_images_images, multiple: true %></td>
      </tr>
-     <td class="text-center"><%= f.submit "申請", class: "text-center btn btn-success ml-5 px-4" %></td>
+     <td><%= f.hidden_field :request_status, value: "requesting" %></td>
+     <tr>
+       <td class="text-center"><%= f.submit "申請", class: "text-center btn btn-success ml-5 px-4" %></td>
+     </tr>
     </table>
    <% end %>
   </div>

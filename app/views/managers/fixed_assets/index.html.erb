@@ -1,34 +1,24 @@
-<div class="container row mx-auto mt-5">
-
-  <h2 class="mx-auto mb-4">資産一覧</h2>
-
+<div class="container mx-auto mt-5">
+  <h2 class="text-center">申請一覧</h2>
+  <div class="col-md-12 text-right mb-3">
+    <%= render 'searchs/search_fixed_asset', url: managers_fixed_assets_path, q: @q %>
+  </div>
   <table class="table text-center">
     <thead>
       <tr class="row">
+        <th class="col-md-1">担当者</th>
         <th class="col-md-1">拠点名</th>
         <th class="col-md-1">資産名</th>
         <th class="col-md-1">資産区分</th>
-        <th class="col-md-2">取得日</th>
+        <th class="col-md-1">取得日</th>
         <th class="col-md-1">耐用年数</th>
         <th class="col-md-2">総額費用<br/>（税抜）</th>
-        <th class="col-md-1">耐用年数（月）</th>
+        <th class="col-md-1">耐用年数<br/>（月）</th>
         <th class="col-md-2">月額費用<br/>（税抜）</th>
         <th class="col-md-1"></th>
       </tr>
     </thead>
-    <% @fixed_assets.each do |fixed_asset| %>
-      <tbody>
-        <tr class="row">
-          <td class="col-md-1"><%= fixed_asset.base.name %></td>
-          <td class="col-md-1"><%= link_to fixed_asset.name ,managers_fixed_asset_path(fixed_asset) %></td>
-          <td class="col-md-1"><%= fixed_asset.classification_detail.classification %></td>
-          <td class="col-md-2"><%= fixed_asset.acquisition_date %></td>
-          <td class="col-md-1"><%= fixed_asset.classification_detail.useful_life %>年</td>
-          <td class="col-md-2"><%= fixed_asset.cost.to_s(:delimited) %>円</td>
-          <td class="col-md-1"><%= year_to_month(fixed_asset.classification_detail.useful_life) %>ヵ月</td>
-          <td class="col-md-2"><%= month_cost(fixed_asset.cost,fixed_asset.classification_detail.useful_life).to_s(:delimited) %>円/月</td>
-          <td class="col-md-1"><%= link_to "削除", managers_fixed_asset_path(fixed_asset), method: :destroy, class: "btn btn-danger py-0", data: { confirm: '削除しますか？' } %></td>
-      </tbody>
-    <% end %>
+    <%= render '/staffs/fixed_assets/index', fixed_assets: @fixed_assets %>
   </table>
+  <div class="mx-auto"><%= paginate @fixed_assets %></div>
 </div>

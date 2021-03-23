@@ -4,6 +4,8 @@ class Staff < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  include Discard::Model
+
   has_many :fixed_assets
 
   validates :name, presence: true

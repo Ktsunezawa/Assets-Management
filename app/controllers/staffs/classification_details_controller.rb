@@ -1,12 +1,13 @@
 class Staffs::ClassificationDetailsController < ApplicationController
-    before_action :authenticate_staff!
+  before_action :authenticate_staff!
 
   def new
     @classification_detail = ClassificationDetail.new
   end
 
   def index
-    @classification_details = ClassificationDetail.all
+    @q = ClassificationDetail.ransack(params[:q])
+    @classification_details = @q.result(distinct: true).page(params[:page]).reverse_order
   end
 
   def edit
@@ -25,21 +26,21 @@ class Staffs::ClassificationDetailsController < ApplicationController
   def update
     @classification_detail = ClassificationDetail.find(params[:id])
     if @classification_detail.update(classification_detail_params)
-       redirect_to staffs_classification_details_path
+      redirect_to staffs_classification_details_path
     else
-       render :edit
+      render :edit
     end
   end
 
   def destroy
     classification_detail = ClassificationDetail.find(params[:id])
-    classification_detail.destroy
+    classification_detail.discard
     redirect_to staffs_classification_details_path
   end
 
   private
 
   def classification_detail_params
-    params.require(:classification_detail).permit(:classification, :detail, :useful_life, :period)
+    params.require(:classification_detail).permit(:classification, :detail, :useful_life)
   end
 end

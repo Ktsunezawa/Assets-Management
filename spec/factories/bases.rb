@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :base do
-    staff_id { 1 }
-    name { "MyString" }
+    name { Faker::Lorem.characters(number:5) }
   end
 end

@@ -1,9 +1,9 @@
-  <div class="top-image d-flex justify-content-center align-items-center ">
+  <div class="top-image d-flex justify-content-center align-items-center">
    <% unless staff_signed_in? || manager_signed_in? %>
-     <div class="staff h1"><strong>担当者</strong></div>
-     <div><%= link_to "新規登録", new_staff_registration_path, class: "btn btn-primary mr-3 ml-3" %></div>
-     <div><%= link_to "ログイン", new_staff_session_path, class: "btn btn-success mr-3" %></div>
-     <div class="manager h1 ml-5"><strong>管理職</strong></div>
-     <div><%= link_to "ログイン", new_manager_session_path, class: "btn btn-success ml-3 " %></div>
+     <div class="staff h1 px-3 py-2"><strong>担当者</strong></div>
+     <div><%= link_to "新規登録", new_staff_registration_path, class: "btn btn-primary mr-3 ml-3 px-4 py-3" %></div>
+     <div><%= link_to "ログイン", new_staff_session_path, class: "btn btn-success mr-3 px-4 py-3" %></div>
+     <div class="manager h1 ml-5 px-3 py-2"><strong>管理職</strong></div>
+     <div><%= link_to "ログイン", new_manager_session_path, class: "btn btn-success ml-3 px-4 py-3" %></div>
    <% end %>
   </div>

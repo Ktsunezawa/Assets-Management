@@ -75,6 +75,7 @@ gem 'enum_help'
 gem 'ransack'
 gem 'rubocop-airbnb'
 gem 'discard', '~> 1.2'
+gem 'seed-fu'
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

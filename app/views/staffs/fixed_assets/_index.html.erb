@@ -1,11 +1,11 @@
     <% if staff_signed_in? %>
-      <% fixed_assets.each do |fixed_asset| %>
-        <tbody>
-          <tr class="row">
+      <tbody>
+        <tr class="row">
+          <% fixed_assets.each do |fixed_asset| %>
             <td class="col-md-1"><%= fixed_asset.base.name %></td>
-            <td class="col-md-1"><%= link_to fixed_asset.name, staffs_fixed_asset_path(fixed_asset), class: "color-blue" %></td>
+            <td class="col-md-2"><%= link_to fixed_asset.name, staffs_fixed_asset_path(fixed_asset), class: "color-blue" %></td>
             <td class="col-md-1"><%= fixed_asset.classification_detail.classification_i18n %></td>
-            <td class="col-md-2"><%= fixed_asset.acquisition_date %></td>
+            <td class="col-md-1"><%= fixed_asset.acquisition_date %></td>
             <td class="col-md-1"><%= fixed_asset.classification_detail.useful_life %>年</td>
             <td class="col-md-2"><%= fixed_asset.cost.to_s(:delimited) %>円</td>
             <td class="col-md-1"><%= year_to_month(fixed_asset.classification_detail.useful_life) %>ヵ月</td>
@@ -19,13 +19,11 @@
             <% else %>
               <td class="col-md-1 bg-danger"><%= fixed_asset.request_status_i18n %></td>
             <% end %>
-          </tr>
-        </tbody>
-      <% end %>
+          <% end %>
+        </tr>
     <% elsif manager_signed_in? %>
-      <% fixed_assets.each do |fixed_asset| %>
-        <tbody>
-          <tr class="row">
+        <tr class="row">
+          <% fixed_assets.each do |fixed_asset| %>
             <% if fixed_asset.request_status == "requesting" %>
               <td class="col-md-1"><%= fixed_asset.staff.name %></td>
               <td class="col-md-1"><%= fixed_asset.base.name %></td>
@@ -38,7 +36,7 @@
               <td class="col-md-2"><%= month_cost(fixed_asset.cost,fixed_asset.classification_detail.useful_life).to_s(:delimited) %>円/月</td>
         　     <td class="col-md-1"><%= link_to "詳細", managers_fixed_asset_path(fixed_asset), class: "btn btn-secondary" %></td>
             <% end %>
-          </tr>
-        </tbody>
-      <% end %>
+          <% end %>
+        </tr>
+      </tbody>
     <% end %>

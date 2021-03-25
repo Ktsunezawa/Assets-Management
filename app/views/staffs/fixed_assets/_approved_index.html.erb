@@ -2,9 +2,9 @@
     <thead>
       <tr class="row valign-middle">
         <th class="col-md-1">拠点名</th>
-        <th class="col-md-1">資産名</th>
+        <th class="col-md-2">資産名</th>
         <th class="col-md-1">資産区分</th>
-        <th class="col-md-2">取得日</th>
+        <th class="col-md-1">取得日</th>
         <th class="col-md-1">耐用年数</th>
         <th class="col-md-2">総額費用<br/>（税抜）</th>
         <th class="col-md-1">耐用年数<br/>（月）</th>
@@ -18,12 +18,12 @@
         <tr class="row">
           <td class="col-md-1"><%= fixed_asset.base.name %></td>
           <% if staff_signed_in? %>
-           <td class="col-md-1"><%= link_to fixed_asset.name, staffs_fixed_asset_path(fixed_asset), class: "color-blue" %></td>
+           <td class="col-md-2"><%= link_to fixed_asset.name, staffs_fixed_asset_path(fixed_asset), class: "color-blue" %></td>
           <% elsif manager_signed_in? %>
-           <td class="col-md-1"><%= link_to fixed_asset.name, managers_fixed_asset_path(fixed_asset), class: "color-blue" %></td>
+           <td class="col-md-2"><%= link_to fixed_asset.name, managers_fixed_asset_path(fixed_asset), class: "color-blue" %></td>
           <% end %>
           <td class="col-md-1"><%= fixed_asset.classification_detail.classification_i18n %></td>
-          <td class="col-md-2"><%= fixed_asset.acquisition_date.strftime('%Y/%m') %></td>
+          <td class="col-md-1"><%= fixed_asset.acquisition_date.strftime('%Y/%m') %></td>
           <td class="col-md-1"><%= fixed_asset.classification_detail.useful_life %>年</td>
           <td class="col-md-2"><%= fixed_asset.cost.to_s(:delimited) %>円</td>
           <td class="col-md-1"><%= year_to_month(fixed_asset.classification_detail.useful_life) %>ヵ月</td>
@@ -38,5 +38,4 @@
      <% end %>
     <% end %>
   </table>
-  <div class="mx-auto"><%= paginate @fixed_assets %></div>
-</div>
+  <div class="d-flex justify-content-center"><%= paginate @fixed_assets %></div>

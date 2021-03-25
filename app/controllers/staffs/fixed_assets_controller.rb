@@ -15,7 +15,11 @@ class Staffs::FixedAssetsController < ApplicationController
 
   def approved_index
     @q = FixedAsset.ransack(params[:q])
-    @fixed_assets = @q.result.includes(:classification_detail, :base).page(params[:page]).reverse_order
+    if params[:q]
+      @fixed_assets = @q.result.includes(:classification_detail, :base).page(params[:page]).reverse_order
+    else
+      @fixed_assets = FixedAsset.where(request_status: 'approved').includes(:classification_detail, :base).page(params[:page]).reverse_order
+    end
   end
 
   def show

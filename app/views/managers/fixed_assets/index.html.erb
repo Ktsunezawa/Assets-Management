@@ -1,6 +1,6 @@
 <div class="container mx-auto mt-5">
   <h2 class="text-center">申請一覧</h2>
-  <div class="col-md-12 text-right mb-3">
+  <div class="col-md-12 text-right">
     <%= render 'searchs/search_fixed_asset', url: managers_fixed_assets_path, q: @q %>
   </div>
   <table class="table text-center">
@@ -20,5 +20,5 @@
     </thead>
     <%= render '/staffs/fixed_assets/index', fixed_assets: @fixed_assets %>
   </table>
-  <div class="mx-auto"><%= paginate @fixed_assets %></div>
+  <div class="d-flex justify-content-center"><%= paginate @fixed_assets %></div>
 </div>

@@ -1,8 +1,7 @@
 <div class="container mx-auto mt-5">
   <h2 class="text-center mb-3">資産一覧</h2>
-    <div class="col-md-12 mb-3">
-      <%= render 'searchs/search_fixed_asset', url: approved_index_managers_fixed_assets_path, q: @q, fixed_asset: @fixed_asset %>
-    </div>
-    <%= render '/staffs/fixed_assets/approved_index', fixed_assets: @fixed_assets %>
-
+  <div class="col-md-12">
+    <%= render 'searchs/search_fixed_asset', url: approved_index_managers_fixed_assets_path, q: @q %>
+  </div>
+  <%= render '/staffs/fixed_assets/approved_index', fixed_assets: @fixed_assets %>
 </div>

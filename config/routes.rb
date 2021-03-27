@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       end
     end
     resources :classification_details, except: [:show]
-    resources :bases, except: [:show, :edit, :update]
+    resources :strongpoints, except: [:show, :edit, :update]
   end
 
   namespace :managers do

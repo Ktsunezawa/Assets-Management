@@ -1,7 +1,7 @@
 class FixedAsset < ApplicationRecord
 
   belongs_to :staff
-  belongs_to :base
+  belongs_to :strongpoint
 
   belongs_to :classification_detail
   accepts_nested_attributes_for :classification_detail
@@ -11,7 +11,6 @@ class FixedAsset < ApplicationRecord
 
   enum request_status: { requesting: 0, approved: 1, fix: 2, deleted: 3 }
 
-  validates :name, :base_id, :acquisition_date, :memo, :post_images_images, presence: true
+  validates :name, :acquisition_date, :memo, :post_images_images, presence: true
   validates :cost, numericality: { only_integer: true, greater_than_or_equal_to: 200000 }
-  validates :classification_detail, presence: true
 end

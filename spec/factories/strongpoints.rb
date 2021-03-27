@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :base do
+  factory :strongpoint do
     name { Faker::Lorem.characters(number:5) }
   end
 end

@@ -9,4 +9,8 @@ class Staff < ApplicationRecord
   has_many :fixed_assets
 
   validates :name, presence: true
+
+  def active_for_authentication?
+    super && kept?
+  end
 end

@@ -1,12 +1,12 @@
 <div class="container row mx-auto mt-5 mb-5">
-  <div class="col-md-6 mx-auto">
+  <div class="col-md-5 mx-auto">
    <h2 class="text-center mb-5">資産登録申請</h2>
    <%= form_with model: @fixed_asset, url: staffs_fixed_assets_path, local: true do |f| %>
     <%= render 'errors/error', model: @fixed_asset %>
     <table>
      <tr class="field row mb-4">
-      　<th class="col-md-6"><%= f.label :base_name %></th>
-      　<td class="col-md-6"><%= f.collection_select(:base_id, @bases, :id, :name, {:prompt => '選択して下さい'} ) %></td>
+      　<th class="col-md-6"><%= f.label :strongpoint %></th>
+      　<td class="col-md-6"><%= f.collection_select(:strongpoint_id, @strongpoints, :id, :name, {:prompt => '選択して下さい'} ) %></td>
      </tr>
      <tr class="field row mb-4">
        <th class="col-md-6"><%= f.label :name %></th>
@@ -43,7 +43,7 @@
      </tr>
      <td><%= f.hidden_field :request_status, value: "requesting" %></td>
      <tr>
-       <td class="text-center"><%= f.submit "申請", class: "text-center btn btn-success ml-5 px-4" %></td>
+       <td class="text-center"><%= f.submit "申請", class: "text-center btn btn-success mr-5 px-4" %></td>
      </tr>
     </table>
    <% end %>

@@ -4,21 +4,21 @@ class Staffs::FixedAssetsController < ApplicationController
   def new
     @fixed_asset = FixedAsset.new
     @fixed_asset.post_images.build
-    @bases = Base.all
+    @strongpoints = Strongpoint.kept
     @life_list = ClassificationDetail.all.select('id', 'useful_life')
   end
 
   def index
     @q = current_staff.fixed_assets.ransack(params[:q])
-    @fixed_assets = @q.result.includes(:classification_detail, :base).page(params[:page]).reverse_order
+    @fixed_assets = @q.result.includes(:classification_detail, :strongpoint).page(params[:page]).reverse_order
   end
 
   def approved_index
     @q = FixedAsset.ransack(params[:q])
     if params[:q]
-      @fixed_assets = @q.result.includes(:classification_detail, :base).page(params[:page]).reverse_order
+      @fixed_assets = @q.result.includes(:classification_detail, :strongpoint).page(params[:page]).reverse_order
     else
-      @fixed_assets = FixedAsset.where(request_status: 'approved').includes(:classification_detail, :base).page(params[:page]).reverse_order
+      @fixed_assets = FixedAsset.where(request_status: 'approved').includes(:classification_detail, :strongpoint).page(params[:page]).reverse_order
     end
   end
 
@@ -28,12 +28,12 @@ class Staffs::FixedAssetsController < ApplicationController
 
   def edit
     @fixed_asset = FixedAsset.find(params[:id])
-    @bases = Base.all
+    @strongpoints = Strongpoint.kept
     @life_list = ClassificationDetail.all.select('id', 'useful_life')
   end
 
   def create
-    @bases = Base.all
+    @strongpoints = Strongpoint.kept
     @life_list = ClassificationDetail.all.select('id', 'useful_life')
     @fixed_asset = current_staff.fixed_assets.new(fixed_asset_params)
     if @fixed_asset.save
@@ -50,7 +50,7 @@ class Staffs::FixedAssetsController < ApplicationController
   end
 
   def update
-    @bases = Base.all
+    @strongpoints = Strongpoint.kept
     @life_list = ClassificationDetail.all.select('id', 'useful_life')
     @fixed_asset = FixedAsset.find(params[:id])
     if @fixed_asset.update(fixed_asset_params)
@@ -68,7 +68,7 @@ class Staffs::FixedAssetsController < ApplicationController
 
   def get_detail
     @detail_list = [ClassificationDetail.new(detail: "選択して下さい")]
-    list = ClassificationDetail.where(classification: params[:classification])
+    list = ClassificationDetail.kept.where(classification: params[:classification])
     list.each do |item|
       @detail_list.push(item)
     end
@@ -85,7 +85,7 @@ class Staffs::FixedAssetsController < ApplicationController
       :cost,
       :memo,
       :acquisition_date,
-      :base_id,
+      :strongpoint_id,
       :request_status,
       :classification_detail_id,
       classification_detail_attributes: [:classification, :detail, :useful_life],

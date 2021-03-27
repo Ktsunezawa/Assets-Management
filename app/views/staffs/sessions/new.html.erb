@@ -1,7 +1,6 @@
 <div class="container row mx-auto mt-5 mb-5">
   <div class="signup text-center bg-light py-4 px-3 col-md-6 mx-auto rounded">
    <h3 class="signup-title mb-4">担当者　ログイン</h3>
-
    <%= form_with model: @staff, url: staff_session_path, local: true do |f| %>
      <div class="field mb-3">
        <i class="far fa-envelope mr-2"></i><%= f.label :email %><br />

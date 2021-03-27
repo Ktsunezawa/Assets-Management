@@ -2,7 +2,7 @@ class CreateFixedAssets < ActiveRecord::Migration[5.2]
   def change
     create_table :fixed_assets do |t|
       t.integer :staff_id
-      t.integer :base_id
+      t.integer :strongpoint_id
       t.integer :request_status, null: false, default: 0
       t.integer :classification_detail_id
       t.string :name, null: false, default: ""

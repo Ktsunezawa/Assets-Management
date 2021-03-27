@@ -39,18 +39,17 @@ ja:
         cost: 総額（税抜）
         memo: メモ
         acquisition_date: 取得日
-        base_name: 拠点名
         classification: 資産区分
         detail: 詳細
         month_cost: 月額費用（税抜）
         image: 写真
         useful_life: 耐用年数
         period: 耐用年数（月）
-        base_id: 拠点名
+        strongpoint: 拠点名
         classification_detail: 資産区分
         post_images_images: 写真
         request_status: 申請状況
-      base:
+      strongpoint:
         name: 拠点名
   enums:
     fixed_asset:

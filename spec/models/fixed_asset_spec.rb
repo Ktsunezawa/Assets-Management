@@ -4,11 +4,11 @@ RSpec.describe 'FixedAssetモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     subject { fixed_asset.valid? }
 
-    let(:base) {build(:base)}
+    let(:strongpoint) {build(:strongpoint)}
     let(:staff) {build(:staff)}
     let(:classification_detail) {build(:classification_detail)}
     let(:post_image){ build(:post_image)}
-    let(:fixed_asset) { build(:fixed_asset, {staff_id: staff.id, base_id: base.id, classification_detail_id: classification_detail.id, post_image_ids: []}) }
+    let(:fixed_asset) { build(:fixed_asset, {staff_id: staff.id, strongpoint_id: strongpoint.id, classification_detail_id: classification_detail.id, post_image_ids: []}) }
 
     context 'nameカラム' do
       it '空欄でないこと' do
@@ -34,9 +34,9 @@ RSpec.describe 'FixedAssetモデルのテスト', type: :model do
         is_expected.to eq false
       end
     end
-    context 'Base.nameカラム' do
+    context 'Strongpoint.nameカラム' do
       it '空欄でないこと' do
-        base.name = ''
+        strongpoint.name = ''
         is_expected.to eq false
       end
     end
@@ -94,9 +94,9 @@ RSpec.describe 'FixedAssetモデルのテスト', type: :model do
         expect(FixedAsset.reflect_on_association(:staff).macro).to eq :belongs_to
       end
     end
-    context 'Baseモデルとの関係' do
+    context 'Strongpointモデルとの関係' do
       it 'N:1となっている' do
-        expect(FixedAsset.reflect_on_association(:base).macro).to eq :belongs_to
+        expect(FixedAsset.reflect_on_association(:strongpoint).macro).to eq :belongs_to
       end
     end
   end

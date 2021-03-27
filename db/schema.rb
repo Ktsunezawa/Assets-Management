@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_20_080934) do
-
-  create_table "bases", force: :cascade do |t|
-    t.string "name", default: "", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.datetime "discarded_at"
-    t.index ["discarded_at"], name: "index_bases_on_discarded_at"
-  end
+ActiveRecord::Schema.define(version: 2021_03_27_054119) do
 
   create_table "classification_details", force: :cascade do |t|
     t.integer "classification"
@@ -32,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_03_20_080934) do
 
   create_table "fixed_assets", force: :cascade do |t|
     t.integer "staff_id"
-    t.integer "base_id"
+    t.integer "strongpoint_id"
     t.integer "request_status", default: 0, null: false
     t.integer "classification_detail_id"
     t.string "name", default: "", null: false
@@ -76,6 +68,14 @@ ActiveRecord::Schema.define(version: 2021_03_20_080934) do
     t.index ["discarded_at"], name: "index_staffs_on_discarded_at"
     t.index ["email"], name: "index_staffs_on_email", unique: true
     t.index ["reset_password_token"], name: "index_staffs_on_reset_password_token", unique: true
+  end
+
+  create_table "strongpoints", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_strongpoints_on_discarded_at"
   end
 
 end

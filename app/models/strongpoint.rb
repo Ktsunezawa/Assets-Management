@@ -1,4 +1,4 @@
-class Base < ApplicationRecord
+class Strongpoint < ApplicationRecord
   include Discard::Model
 
   has_many :fixed_assets

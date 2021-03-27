@@ -4,18 +4,18 @@ class Managers::FixedAssetsController < ApplicationController
   def index
     @q = FixedAsset.ransack(params[:q])
     if params[:q]
-      @fixed_assets = @q.result.includes(:classification_detail, :base).page(params[:page]).reverse_order
+      @fixed_assets = @q.result.includes(:classification_detail, :strongpoint).page(params[:page]).reverse_order
     else
-      @fixed_assets = FixedAsset.where(request_status: 'requesting').includes(:classification_detail, :base).page(params[:page]).reverse_order
+      @fixed_assets = FixedAsset.where(request_status: 'requesting').includes(:classification_detail, :strongpoint).page(params[:page]).reverse_order
     end
   end
 
   def approved_index
     @q = FixedAsset.ransack(params[:q])
     if params[:q]
-      @fixed_assets = @q.result.includes(:classification_detail, :base).page(params[:page]).reverse_order
+      @fixed_assets = @q.result.includes(:classification_detail, :strongpoint).page(params[:page]).reverse_order
     else
-      @fixed_assets = FixedAsset.where(request_status: 'approved').includes(:classification_detail, :base).page(params[:page]).reverse_order
+      @fixed_assets = FixedAsset.where(request_status: 'approved').includes(:classification_detail, :strongpoint).page(params[:page]).reverse_order
     end
   end
 

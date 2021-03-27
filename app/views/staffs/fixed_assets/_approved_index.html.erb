@@ -16,7 +16,7 @@
      <% if fixed_asset.request_status == "approved" %>
       <tbody>
         <tr class="row">
-          <td class="col-md-1"><%= fixed_asset.base.name %></td>
+          <td class="col-md-1"><%= fixed_asset.strongpoint.name %></td>
           <% if staff_signed_in? %>
            <td class="col-md-2"><%= link_to fixed_asset.name, staffs_fixed_asset_path(fixed_asset), class: "color-blue" %></td>
           <% elsif manager_signed_in? %>

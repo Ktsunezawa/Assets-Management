@@ -2,12 +2,12 @@ class Staffs::StrongpointsController < ApplicationController
   before_action :authenticate_staff!
 
   def index
-    @strongpoints = Strongpoint.all
+    @strongpoints = Strongpoint.kept
     @strongpoint = Strongpoint.new
   end
 
   def create
-    @strongpoints = Strongpoint.all
+    @strongpoints = Strongpoint.kept
     @strongpoint = Strongpoint.new(strongpoint_params)
     if @strongpoint.save
       redirect_to staffs_strongpoints_path

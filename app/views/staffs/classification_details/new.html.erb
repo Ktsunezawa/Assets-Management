@@ -1,14 +1,14 @@
 <div class="container row mx-auto mt-5 mb-5">
   <div class="col-md-4 mx-auto">
-   <h2 class="text-center mb-5">資産区分 新規作成</h2>
-   <%= render 'errors/error', model: @classification_detail %>
-   <%= form_with model: @classification_detail, url: staffs_classification_details_path, local: true do |f| %>
-   <table>
-     <%= render 'form', f: f, classification_detail: @classification_detail %>
-     <tr class="text-center">
-       <td><%= f.submit "作成", class: "btn btn-primary mr-5 px-3" %></td>
-     </tr>
-   </table>
-   <% end %>
+    <h2 class="text-center mb-5">資産区分 新規作成</h2>
+    <%= render 'errors/error', model: @classification_detail %>
+    <%= form_with model: @classification_detail, url: staffs_classification_details_path, local: true do |f| %>
+      <table>
+        <%= render 'form', f: f, classification_detail: @classification_detail %>
+        <tr class="text-center">
+          <td><%= f.submit "作成", class: "btn btn-primary mr-5 px-3" %></td>
+        </tr>
+      </table>
+    <% end %>
   </div>
 </div>

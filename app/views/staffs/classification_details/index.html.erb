@@ -16,7 +16,6 @@
       </tr>
     </thead>
     <% @classification_details.each do |classification_detail| %>
-    <% unless classification_detail.discarded? %>
       <tbody>
         <tr class="row">
           <td class="col-md-2"><%= classification_detail.classification_i18n %></td>
@@ -27,7 +26,6 @@
           <td class="col-md-1"><%= link_to "削除", staffs_classification_detail_path(classification_detail.id), class: "btn btn-danger", method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
         </tr>
       </tbody>
-    <% end %>
     <% end %>
   </table>
   <div class="mx-auto"><%= paginate @classification_details %></div>

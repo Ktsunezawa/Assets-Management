@@ -10,75 +10,75 @@
   </head>
 
   <body>
-   <div class="wrapper">
-   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid ">
-        <a class="navbar-brand" href="/">
-          <p class="title text-center mb-0"><strong>Assets</strong></p>
-          <p class="title mt-0 mb-0"><strong>Management</strong></p>
-        </a>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto">
-            <% if staff_signed_in? %>
-              <li class="mr-3 pt-3 btn btn-light">
-                <%= link_to "マイページ", edit_staffs_staff_path(current_staff.id) %>
-              </li>
-              <li class="mr-3 pt-3 btn btn-light">
-                <%= link_to "資産一覧", approved_index_staffs_fixed_assets_path %>
-              </li>
-              <li class="mr-3 pt-3 btn btn-light">
-                <%= link_to "資産区分一覧", staffs_classification_details_path %>
-              </li>
-              <li class="mr-3 pt-3 btn btn-light">
-                <%= link_to "申請一覧", staffs_fixed_assets_path %>
-              </li>
-              <li class="mr-3 pt-3 btn btn-light">
-                <%= link_to "拠点一覧", staffs_strongpoints_path %>
-              </li>
-              <li class="mr-3 btn btn-light">
-                <a href="http://www.web-seibunsha.jp/tebiki/pdf/9/pdf_mask/huroku.pdf">
-                  <span>国税庁<br />耐用年数表</span>
-                </a>
-              </li>
-              <li class="mr-3 pt-3 btn btn-light">
-                <%= link_to "ログアウト", destroy_staff_session_path, method: :delete %>
-              </li>
-            <% elsif manager_signed_in? %>
-              <li class="mr-3 pt-3 btn btn-light">
-                <%= link_to "担当者一覧", managers_staffs_path %>
-              </li>
-              <li class="mr-3 pt-3 btn btn-light">
-                <%= link_to "資産一覧", approved_index_managers_fixed_assets_path %>
-              </li>
-              <li class="mr-3 pt-3 btn btn-light">
-                <%= link_to "申請一覧", managers_fixed_assets_path %>
-              </li>
-              <li class="mr-3 btn btn-light">
-                <a href="http://www.web-seibunsha.jp/tebiki/pdf/9/pdf_mask/huroku.pdf">
-                  <span>国税庁<br />耐用年数表</span>
-                </a>
-              </li>
-              <li class="mr-3 pt-3 btn btn-light">
-                <%= link_to "ログアウト", destroy_manager_session_path, method: :delete %>
-              </li>
-            <% else %>
-              <li class="mr-5 pt-3 btn btn-light ">
-                <%= link_to "About", homes_about_path %>
-              </li>
-              <li class="mr-5 btn btn-light ">
-                <a href="http://www.web-seibunsha.jp/tebiki/pdf/9/pdf_mask/huroku.pdf">
-                  <span>国税庁<br />耐用年数表</span>
-                </a>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </nav>
-   </header>
-   <%= yield %>
-   <footer class="bg-light"></footer>
-  </div>
+    <div class="wrapper">
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid ">
+            <a class="navbar-brand" href="/">
+              <p class="title text-center mb-0"><strong>Assets</strong></p>
+              <p class="title mt-0 mb-0"><strong>Management</strong></p>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
+                <% if staff_signed_in? %>
+                  <li class="mr-3 pt-3 btn btn-light">
+                    <%= link_to "マイページ", edit_staffs_staff_path(current_staff.id) %>
+                  </li>
+                  <li class="mr-3 pt-3 btn btn-light">
+                    <%= link_to "資産一覧", approved_index_staffs_fixed_assets_path %>
+                  </li>
+                  <li class="mr-3 pt-3 btn btn-light">
+                    <%= link_to "資産区分一覧", staffs_classification_details_path %>
+                  </li>
+                  <li class="mr-3 pt-3 btn btn-light">
+                    <%= link_to "申請一覧", staffs_fixed_assets_path %>
+                  </li>
+                  <li class="mr-3 pt-3 btn btn-light">
+                    <%= link_to "拠点一覧", staffs_strongpoints_path %>
+                  </li>
+                  <li class="mr-3 btn btn-light">
+                    <a href="http://www.web-seibunsha.jp/tebiki/pdf/9/pdf_mask/huroku.pdf">
+                      <span>国税庁<br />耐用年数表</span>
+                    </a>
+                  </li>
+                  <li class="mr-3 pt-3 btn btn-light">
+                    <%= link_to "ログアウト", destroy_staff_session_path, method: :delete %>
+                  </li>
+                <% elsif manager_signed_in? %>
+                  <li class="mr-3 pt-3 btn btn-light">
+                    <%= link_to "担当者一覧", managers_staffs_path %>
+                  </li>
+                  <li class="mr-3 pt-3 btn btn-light">
+                    <%= link_to "資産一覧", approved_index_managers_fixed_assets_path %>
+                  </li>
+                  <li class="mr-3 pt-3 btn btn-light">
+                    <%= link_to "申請一覧", managers_fixed_assets_path %>
+                  </li>
+                  <li class="mr-3 btn btn-light">
+                    <a href="http://www.web-seibunsha.jp/tebiki/pdf/9/pdf_mask/huroku.pdf">
+                      <span>国税庁<br />耐用年数表</span>
+                    </a>
+                  </li>
+                  <li class="mr-3 pt-3 btn btn-light">
+                    <%= link_to "ログアウト", destroy_manager_session_path, method: :delete %>
+                  </li>
+                <% else %>
+                  <li class="mr-5 pt-3 btn btn-light ">
+                    <%= link_to "About", homes_about_path %>
+                  </li>
+                  <li class="mr-5 btn btn-light ">
+                    <a href="http://www.web-seibunsha.jp/tebiki/pdf/9/pdf_mask/huroku.pdf">
+                      <span>国税庁<br />耐用年数表</span>
+                    </a>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <%= yield %>
+      <footer class="bg-light"></footer>
+    </div>
   </body>
 </html>

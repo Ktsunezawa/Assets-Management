@@ -13,14 +13,13 @@
       </tr>
     </thead>
     <% fixed_assets.each do |fixed_asset| %>
-     <% if fixed_asset.request_status == "approved" %>
       <tbody>
         <tr class="row">
           <td class="col-md-1"><%= fixed_asset.strongpoint.name %></td>
           <% if staff_signed_in? %>
-           <td class="col-md-2"><%= link_to fixed_asset.name, staffs_fixed_asset_path(fixed_asset), class: "color-blue" %></td>
+            <td class="col-md-2"><%= link_to fixed_asset.name, staffs_fixed_asset_path(fixed_asset), class: "color-blue" %></td>
           <% elsif manager_signed_in? %>
-           <td class="col-md-2"><%= link_to fixed_asset.name, managers_fixed_asset_path(fixed_asset), class: "color-blue" %></td>
+            <td class="col-md-2"><%= link_to fixed_asset.name, managers_fixed_asset_path(fixed_asset), class: "color-blue" %></td>
           <% end %>
           <td class="col-md-1"><%= fixed_asset.classification_detail.classification_i18n %></td>
           <td class="col-md-1"><%= fixed_asset.acquisition_date.strftime('%Y/%m') %></td>
@@ -29,13 +28,12 @@
           <td class="col-md-1"><%= year_to_month(fixed_asset.classification_detail.useful_life) %>ヵ月</td>
           <td class="col-md-2"><%= month_cost(fixed_asset.cost,fixed_asset.classification_detail.useful_life).to_s(:delimited) %>円/月</td>
           <% if staff_signed_in? %>
-           <td class="col-md-1"><%= link_to "詳細", staffs_fixed_asset_path(fixed_asset), class: "btn btn-secondary" %></td>
+            <td class="col-md-1"><%= link_to "詳細", staffs_fixed_asset_path(fixed_asset), class: "btn btn-secondary" %></td>
           <% elsif manager_signed_in?%>
-           <td class="col-md-1"><%= link_to "詳細", managers_fixed_asset_path(fixed_asset), class: "btn btn-secondary" %></td>
+            <td class="col-md-1"><%= link_to "詳細", managers_fixed_asset_path(fixed_asset), class: "btn btn-secondary" %></td>
           <% end %>
         </tr>
       </tbody>
-     <% end %>
     <% end %>
   </table>
   <div class="d-flex justify-content-center"><%= paginate @fixed_assets %></div>

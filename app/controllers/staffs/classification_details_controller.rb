@@ -7,7 +7,7 @@ class Staffs::ClassificationDetailsController < ApplicationController
 
   def index
     @q = ClassificationDetail.ransack(params[:q])
-    @classification_details = @q.result(distinct: true).page(params[:page])
+    @classification_details = @q.result(distinct: true).kept.page(params[:page])
   end
 
   def edit

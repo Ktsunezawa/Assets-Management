@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_27_054119) do
+ActiveRecord::Schema.define(version: 2021_04_01_062844) do
 
   create_table "classification_details", force: :cascade do |t|
     t.integer "classification"
@@ -76,6 +76,13 @@ ActiveRecord::Schema.define(version: 2021_03_27_054119) do
     t.datetime "updated_at", null: false
     t.datetime "discarded_at"
     t.index ["discarded_at"], name: "index_strongpoints_on_discarded_at"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.integer "post_image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

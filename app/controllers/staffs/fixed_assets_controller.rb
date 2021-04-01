@@ -33,9 +33,9 @@ class Staffs::FixedAssetsController < ApplicationController
     @life_list = ClassificationDetail.all.select('id', 'useful_life')
     @fixed_asset = current_staff.fixed_assets.new(fixed_asset_params)
     if @fixed_asset.save
-      redirect_to staffs_fixed_assets_path
+       redirect_to staffs_fixed_assets_path
     else
-      render :new
+       render :new
     end
   end
 
@@ -84,6 +84,7 @@ class Staffs::FixedAssetsController < ApplicationController
       :strongpoint_id,
       :request_status,
       :classification_detail_id,
+      :image,
       classification_detail_attributes: [:classification, :detail, :useful_life],
       post_images_images: []
     ).

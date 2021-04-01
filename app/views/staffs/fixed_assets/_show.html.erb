@@ -44,6 +44,9 @@
         <% @fixed_asset.post_images.each do |image| %>
           <td class="col-md-6">
             <%= attachment_image_tag image, :image, size: "250x250" %>
+            <% image.tags.each do |tag| %>
+              <span class="label"><%= tag.name %></span>
+            <% end %>
           </td>
         <% end %>
       </tr>

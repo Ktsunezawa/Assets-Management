@@ -7,7 +7,7 @@ class PostImage < ApplicationRecord
   def create_tags
       vision_tags = Vision.get_image_data(self)
       vision_tags.each do |tag|
-        self.tags.create(name: tag)
+        tags.create(name: tag)
       end
   end
 
